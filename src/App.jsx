@@ -170,7 +170,7 @@ const App = () => {
         <div className='info-item'>
           <span className='title'>Score:</span>
           <span className='value'>
-            {correctAnswers}/{getUserCharactersLen()} ({getScorePercentage()})
+            {correctAnswers}/{getUserCharactersLen()} ({getScorePercentage()}%)
           </span>
         </div>
       </div>
