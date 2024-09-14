@@ -56,7 +56,7 @@ const App = () => {
 
   const loadCharacters = () => {
     let allData = []
-    currentLevels.forEach(({ label }) => {
+    currentLevels?.forEach(({ label }) => {
       const data = levels.find(e => label === e.value).data
 
       allData = [...data, ...allData].sort(() => Math.random() - 0.5)
