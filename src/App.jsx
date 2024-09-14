@@ -48,7 +48,7 @@ const App = () => {
       value: 'HSK-6'
     },
     {
-      level: 6,
+      level: 7,
       data: HSK.ADVANCE,
       value: 'Advance'
     }
