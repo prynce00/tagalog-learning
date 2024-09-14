@@ -117,7 +117,7 @@ const App = () => {
     const total = getUserCharactersLen()
     const point = (correctAnswers / total) * 100
 
-    return parseFloat(point).toFixed(2)
+    return isNaN(point) ? '0.00' : parseFloat(point).toFixed(2)
   }
 
   useEffect(() => {
@@ -205,12 +205,18 @@ const App = () => {
             </div>
           </>
         ) : (
-          <ContinueBtn
-            label='Reset'
-            action={() => {
-              reset()
-            }}
-          />
+          <>
+            {!currentLevels ? (
+              <p>Select a level to continue</p>
+            ) : (
+              <ContinueBtn
+                label='Reset'
+                action={() => {
+                  reset()
+                }}
+              />
+            )}
+          </>
         )}
         {state === STATES.REVEAL && (
           <div className='answer-container'>
