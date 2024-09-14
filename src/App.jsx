@@ -108,7 +108,8 @@ const App = () => {
     setStorage({
       selectedCharacter: null,
       usedCharacters: [],
-      correctAnswers: 0
+      correctAnswers: 0,
+      state: STATES.RESET
     })
   }
 
