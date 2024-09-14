@@ -1,0 +1,108 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+  width: fit-content;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  height: 100dvh;
+  background: #eee;
+  box-shadow: #eee 0 0 12px;
+  margin: 0 auto;
+
+
+  .game-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px;
+
+    .info-item {
+      display: flex;
+      font-size: 12px;
+      gap: 5px;
+     
+      .title {
+        font-weight: bold;
+      }
+
+    }
+  }
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .character-container {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 100px;
+    }
+    .options-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      gap: 10px;
+
+      .option-btn {
+        display: flex;
+        flex: none;
+        cursor: pointer;
+        width: 45%;
+        height: 45px;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+
+        &:hover {
+          background: #000000;
+          color: #ffffff;
+          font-weight: bold;
+        }
+
+        &.correct {
+          background: #16b45a;
+        }
+        &.wrong {
+          background: #a40b09;
+          color: white;
+        }
+      }
+    }
+    .answer-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+
+      .info {
+        font-size: 20px;
+      }
+
+      .action-box {
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
