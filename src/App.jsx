@@ -11,6 +11,7 @@ const App = () => {
   const currentLevels = storage?.levels
   const state = storage?.state || 'reset'
   const correctAnswers = storage?.correctAnswers || 0
+  const processedCharacters = storage?.processedCharacters || 0
   const usedCharacters = storage?.usedCharacters || []
   const [character, setCharacter] = useState(null)
   const [characters, setCharacters] = useState([])
@@ -99,7 +100,8 @@ const App = () => {
       state: STATES.REVEAL,
       selectedCharacter: selected.character,
       usedCharacters: [...usedCharacters, character],
-      correctAnswers: newCorrectAnswers
+      correctAnswers: newCorrectAnswers,
+      processedCharacters: processedCharacters + 1
     })
   }
 
@@ -109,12 +111,13 @@ const App = () => {
       selectedCharacter: null,
       usedCharacters: [],
       correctAnswers: 0,
+      processedCharacters: 0,
       state: STATES.RESET
     })
   }
 
   const getScorePercentage = () => {
-    const total = getUserCharactersLen()
+    const total = processedCharacters
     const point = (correctAnswers / total) * 100
 
     return isNaN(point) ? '0.00' : parseFloat(point).toFixed(2)
@@ -165,28 +168,32 @@ const App = () => {
         <div className='info-item'>
           <span className='title'>Remaining Characters:</span>
           <span className='value'>
-            {getUserCharactersLen()} /{characters.length}
+            {getUserCharactersLen()}/{characters.length}
           </span>
         </div>
         <div className='info-item'>
-          <span className='title'>Score:</span>
+          <span className='title'>Accuracy:</span>
           <span className='value'>
-            {correctAnswers}/{getUserCharactersLen()} ({getScorePercentage()}%)
+            {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
           </span>
         </div>
       </div>
       <div className='game-container'>
         {state === STATES.RESET && <ContinueBtn label='Start' />}
-        {(state === STATES.ONGOING || state === STATES.REVEAL) && character ? (
+        {(state === STATES.ONGOING || state === STATES.REVEAL) && (
           <>
-            <div className='character-container'>{character.character}</div>
-            <div className='options-container'>
-              {options.map((option, ok) => (
-                <button
-                  className={`option-btn ${
-                    state === STATES.REVEAL &&
-                    (character.character === option.character ? 'correct' : '')
-                  }
+            {character ? (
+              <>
+                <div className='character-container'>{character.character}</div>
+                <div className='options-container'>
+                  {options.map((option, ok) => (
+                    <button
+                      className={`option-btn ${
+                        state === STATES.REVEAL &&
+                        (character.character === option.character
+                          ? 'correct'
+                          : '')
+                      }
                        ${
                          state === STATES.REVEAL &&
                          storage.selectedCharacter === option.character
@@ -196,25 +203,27 @@ const App = () => {
                            : ''
                        }
                      `}
-                  key={`option-btn-${option.pinyin}-${ok}`}
-                  onClick={() => revealAnswer(option)}
-                >
-                  {option.pinyin}
-                </button>
-              ))}
-            </div>
-          </>
-        ) : (
-          <>
-            {!currentLevels ? (
-              <p>Select a level to continue</p>
+                      key={`option-btn-${option.pinyin}-${ok}`}
+                      onClick={() => revealAnswer(option)}
+                    >
+                      {option.pinyin}
+                    </button>
+                  ))}
+                </div>
+              </>
             ) : (
-              <ContinueBtn
-                label='Reset'
-                action={() => {
-                  reset()
-                }}
-              />
+              <>
+                {!currentLevels ? (
+                  <p>Select a level to continue</p>
+                ) : (
+                  <ContinueBtn
+                    label='Reset'
+                    action={() => {
+                      reset()
+                    }}
+                  />
+                )}
+              </>
             )}
           </>
         )}

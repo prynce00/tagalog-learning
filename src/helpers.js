@@ -28,15 +28,15 @@ export const getRandomItems = (items, usedCharacters) => {
   }
 
   const firstItem = getRandomItem(availableItems)
-  if (!firstItem) return [] // Return empty array if no firstItem is available
+  if (!firstItem) return []
 
-  const remainingItems = availableItems.filter(item => item !== firstItem)
+  const remainingPool = items.filter(item => item !== firstItem)
 
-  const uniqueItems = getUniqueItems(remainingItems, 3, firstItem.pinyin)
+  const uniqueItems = getUniqueItems(remainingPool, 3, firstItem.pinyin)
 
   const result = [firstItem, ...uniqueItems]
 
-  return [...new Set(result)].slice(0, 4)
+  return result.slice(0, 4)
 }
 
 export const filterUsedCharacters = (mainArray, usedCharacters) => {

@@ -429,6 +429,151 @@
       "character": "慢",
       "pinyin": "màn",
       "meaning": "slow"
+    },
+    {
+      "character": "一",
+      "pinyin": "yī",
+      "meaning": "one"
+    },
+    {
+      "character": "二",
+      "pinyin": "èr",
+      "meaning": "two"
+    },
+    {
+      "character": "三",
+      "pinyin": "sān",
+      "meaning": "three"
+    },
+    {
+      "character": "四",
+      "pinyin": "sì",
+      "meaning": "four"
+    },
+    {
+      "character": "五",
+      "pinyin": "wǔ",
+      "meaning": "five"
+    },
+    {
+      "character": "六",
+      "pinyin": "liù",
+      "meaning": "six"
+    },
+    {
+      "character": "七",
+      "pinyin": "qī",
+      "meaning": "seven"
+    },
+    {
+      "character": "八",
+      "pinyin": "bā",
+      "meaning": "eight"
+    },
+    {
+      "character": "九",
+      "pinyin": "jiǔ",
+      "meaning": "nine"
+    },
+    {
+      "character": "十",
+      "pinyin": "shí",
+      "meaning": "ten"
+    },
+    {
+      "character": "爸",
+      "pinyin": "bà",
+      "meaning": "dad"
+    },
+    {
+      "character": "妈",
+      "pinyin": "mā",
+      "meaning": "mom"
+    },
+    {
+      "character": "哥",
+      "pinyin": "gē",
+      "meaning": "older brother"
+    },
+    {
+      "character": "姐",
+      "pinyin": "jiě",
+      "meaning": "older sister"
+    },
+    {
+      "character": "弟",
+      "pinyin": "dì",
+      "meaning": "younger brother"
+    },
+    {
+      "character": "妹",
+      "pinyin": "mèi",
+      "meaning": "younger sister"
+    },
+    {
+      "character": "狗",
+      "pinyin": "gǒu",
+      "meaning": "dog"
+    },
+    {
+      "character": "猫",
+      "pinyin": "māo",
+      "meaning": "cat"
+    },
+    {
+      "character": "鸟",
+      "pinyin": "niǎo",
+      "meaning": "bird"
+    },
+    {
+      "character": "鱼",
+      "pinyin": "yú",
+      "meaning": "fish"
+    },
+    {
+      "character": "猪",
+      "pinyin": "zhū",
+      "meaning": "pig"
+    },
+    {
+      "character": "牛",
+      "pinyin": "niú",
+      "meaning": "cow"
+    },
+    {
+      "character": "羊",
+      "pinyin": "yáng",
+      "meaning": "sheep"
+    },
+    {
+      "character": "马",
+      "pinyin": "mǎ",
+      "meaning": "horse"
+    },
+    {
+      "character": "苹果",
+      "pinyin": "píng",
+      "meaning": "apple"
+    },
+    {
+      "character": "梨",
+      "pinyin": "lí",
+      "meaning": "pear"
+    },
+    {
+      "character": "桃",
+      "pinyin": "táo",
+      "meaning": "peach"
+    },
+    {
+      "character": "瓜",
+      "pinyin": "guā",
+      "meaning": "melon"
+    },
+    {
+      "character": "橙",
+      "pinyin": "chéng",
+      "meaning": "orange"
     }
   ],
   "HSK2": [
