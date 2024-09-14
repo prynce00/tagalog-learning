@@ -59,29 +59,53 @@ button {
       padding: 10px;
       gap: 10px;
 
-      .option-btn {
+      .btn-container {
         display: flex;
         flex: none;
         cursor: pointer;
+        align-items: center;
         width: 45%;
         height: 45px;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
+        border: solid 1px #000000;
+        padding: 0 5px;
 
         &:hover {
           background: #000000;
           color: #ffffff;
-          font-weight: bold;
+     
+          button {
+            background: #000000;
+            color: #ffffff;
+            font-weight: bold;
+          }
         }
 
         &.correct {
           background: #16b45a;
+
+          button {
+            background: #16b45a;
+          }
         }
         &.wrong {
           background: #a40b09;
           color: white;
+
+          button {
+            background: #a40b09;
+            color: white;
+          }
         }
+      }
+
+      .option-btn {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        border: none;
       }
     }
     .answer-container {

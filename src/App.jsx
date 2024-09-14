@@ -5,6 +5,7 @@ import { useLocalStorageContext } from './providers/localStorageProvider'
 import { useEffect, useState } from 'react'
 import { STATES } from './contants'
 import { filterUsedCharacters, getRandomItems } from './helpers'
+import PlaySound from './components/playSound'
 
 const App = () => {
   const { storage, setStorage } = useLocalStorageContext()
@@ -187,27 +188,31 @@ const App = () => {
                 <div className='character-container'>{character.character}</div>
                 <div className='options-container'>
                   {options.map((option, ok) => (
-                    <button
-                      className={`option-btn ${
+                    <div
+                      key={`option-btn-${option.pinyin}-${ok}`}
+                      className={`btn-container ${
                         state === STATES.REVEAL &&
                         (character.character === option.character
                           ? 'correct'
                           : '')
                       }
-                       ${
-                         state === STATES.REVEAL &&
-                         storage.selectedCharacter === option.character
-                           ? character.character === option.character
-                             ? 'correct'
-                             : 'wrong'
-                           : ''
-                       }
-                     `}
-                      key={`option-btn-${option.pinyin}-${ok}`}
-                      onClick={() => revealAnswer(option)}
+                   ${
+                     state === STATES.REVEAL &&
+                     storage.selectedCharacter === option.character
+                       ? character.character === option.character
+                         ? 'correct'
+                         : 'wrong'
+                       : ''
+                   }`}
                     >
-                      {option.pinyin}
-                    </button>
+                      <PlaySound filename={option.character} />
+                      <button
+                        className='option-btn'
+                        onClick={() => revealAnswer(option)}
+                      >
+                        {option.pinyin}
+                      </button>
+                    </div>
                   ))}
                 </div>
               </>
