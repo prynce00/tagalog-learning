@@ -578,94 +578,149 @@
   ],
   "HSK2": [
     {
-      "character": "你",
-      "pinyin": "nǐ",
-      "meaning": "you"
+      "character": "手",
+      "pinyin": "shǒu",
+      "meaning": "hand"
     },
     {
-      "character": "我",
-      "pinyin": "wǒ",
-      "meaning": "I, me"
+      "character": "脚",
+      "pinyin": "jiǎo",
+      "meaning": "foot"
     },
     {
-      "character": "他",
-      "pinyin": "tā",
-      "meaning": "he, him"
+      "character": "眼",
+      "pinyin": "yǎn",
+      "meaning": "eye"
     },
     {
-      "character": "她",
-      "pinyin": "tā",
-      "meaning": "she, her"
+      "character": "耳",
+      "pinyin": "ěr",
+      "meaning": "ear"
     },
     {
-      "character": "它",
-      "pinyin": "tā",
-      "meaning": "it"
+      "character": "头",
+      "pinyin": "tóu",
+      "meaning": "head"
     },
     {
-      "character": "了",
-      "pinyin": "le",
-      "meaning": "particle for completed action or change"
+      "character": "心",
+      "pinyin": "xīn",
+      "meaning": "heart"
     },
     {
-      "character": "在",
-      "pinyin": "zài",
-      "meaning": "at, in, on"
+      "character": "鼻",
+      "pinyin": "bí",
+      "meaning": "nose"
     },
     {
-      "character": "不",
-      "pinyin": "bù",
-      "meaning": "not"
+      "character": "嘴",
+      "pinyin": "zuǐ",
+      "meaning": "mouth"
     },
     {
-      "character": "有",
-      "pinyin": "yǒu",
-      "meaning": "have, there is"
+      "character": "桌",
+      "pinyin": "zhuō",
+      "meaning": "table"
     },
     {
-      "character": "这",
-      "pinyin": "zhè",
-      "meaning": "this"
+      "character": "椅",
+      "pinyin": "yǐ",
+      "meaning": "chair"
     },
     {
-      "character": "那",
-      "pinyin": "nà",
-      "meaning": "that"
+      "character": "门",
+      "pinyin": "mén",
+      "meaning": "door"
     },
     {
-      "character": "中",
-      "pinyin": "zhōng",
-      "meaning": "middle, in"
+      "character": "走",
+      "pinyin": "zǒu",
+      "meaning": "to walk"
     },
     {
-      "character": "大",
-      "pinyin": "dà",
-      "meaning": "big"
+      "character": "写",
+      "pinyin": "xiě",
+      "meaning": "to write"
     },
     {
-      "character": "小",
-      "pinyin": "xiǎo",
-      "meaning": "small"
+      "character": "坐",
+      "pinyin": "zuò",
+      "meaning": "to sit"
     },
     {
-      "character": "上",
-      "pinyin": "shàng",
-      "meaning": "up, on"
+      "character": "开",
+      "pinyin": "kāi",
+      "meaning": "to open, to start"
     },
     {
-      "character": "下",
-      "pinyin": "xià",
-      "meaning": "down, under"
+      "character": "关",
+      "pinyin": "guān",
+      "meaning": "to close"
     },
     {
-      "character": "个",
-      "pinyin": "gè",
-      "meaning": "general measure word"
+      "character": "飞",
+      "pinyin": "fēi",
+      "meaning": "to fly"
     },
     {
-      "character": "们",
-      "pinyin": "men",
-      "meaning": "plural marker for pronouns"
+      "character": "笑",
+      "pinyin": "xiào",
+      "meaning": "to laugh, to smile"
+    },
+    {
+      "character": "问",
+      "pinyin": "wèn",
+      "meaning": "to ask"
+    },
+    {
+      "character": "答",
+      "pinyin": "dá",
+      "meaning": "to answer"
+    },
+    {
+      "character": "打",
+      "pinyin": "dǎ",
+      "meaning": "to hit"
+    },
+    {
+      "character": "跑",
+      "pinyin": "pǎo",
+      "meaning": "to run"
+    },
+    {
+      "character": "买",
+      "pinyin": "mǎi",
+      "meaning": "to buy"
+    },
+    {
+      "character": "卖",
+      "pinyin": "mài",
+      "meaning": "to sell"
+    },
+    {
+      "character": "住",
+      "pinyin": "zhù",
+      "meaning": "to live, to reside"
+    },
+    {
+      "character": "送",
+      "pinyin": "sòng",
+      "meaning": "to send"
+    },
+    {
+      "character": "跳",
+      "pinyin": "tiào",
+      "meaning": "to jump"
+    },
+    {
+      "character": "洗",
+      "pinyin": "xǐ",
+      "meaning": "to wash"
+    },
+    {
+      "character": "唱",
+      "pinyin": "chàng",
+      "meaning": "to sing"
     },
     {
       "character": "说",
@@ -673,19 +728,14 @@
       "meaning": "to speak, to say"
     },
     {
-      "character": "做",
-      "pinyin": "zuò",
-      "meaning": "to do, to make"
-    },
-    {
-      "character": "看",
-      "pinyin": "kàn",
-      "meaning": "to see, to look"
-    },
-    {
       "character": "听",
       "pinyin": "tīng",
       "meaning": "to listen"
+    },
+    {
+      "character": "玩",
+      "pinyin": "wán",
+      "meaning": "to play"
     },
     {
       "character": "吃",
@@ -698,74 +748,24 @@
       "meaning": "to drink"
     },
     {
-      "character": "名",
-      "pinyin": "míng",
-      "meaning": "name"
+      "character": "带",
+      "pinyin": "dài",
+      "meaning": "to bring"
     },
     {
-      "character": "年",
-      "pinyin": "nián",
-      "meaning": "year"
+      "character": "穿",
+      "pinyin": "chuān",
+      "meaning": "to wear"
     },
     {
-      "character": "人",
-      "pinyin": "rén",
-      "meaning": "person"
+      "character": "小",
+      "pinyin": "xiǎo",
+      "meaning": "small"
     },
     {
-      "character": "家",
-      "pinyin": "jiā",
-      "meaning": "home, family"
-    },
-    {
-      "character": "书",
-      "pinyin": "shū",
-      "meaning": "book"
-    },
-    {
-      "character": "水",
-      "pinyin": "shuǐ",
-      "meaning": "water"
-    },
-    {
-      "character": "天",
-      "pinyin": "tiān",
-      "meaning": "sky, day"
-    },
-    {
-      "character": "地",
-      "pinyin": "dì",
-      "meaning": "earth, ground"
-    },
-    {
-      "character": "来",
-      "pinyin": "lái",
-      "meaning": "to come"
-    },
-    {
-      "character": "去",
-      "pinyin": "qù",
-      "meaning": "to go"
-    },
-    {
-      "character": "子",
-      "pinyin": "zǐ",
-      "meaning": "child, son"
-    },
-    {
-      "character": "饭",
-      "pinyin": "fàn",
-      "meaning": "meal, rice"
-    },
-    {
-      "character": "车",
-      "pinyin": "chē",
-      "meaning": "car"
-    },
-    {
-      "character": "门",
-      "pinyin": "mén",
-      "meaning": "door, gate"
+      "character": "大",
+      "pinyin": "dà",
+      "meaning": "big"
     },
     {
       "character": "长",
@@ -778,154 +778,24 @@
       "meaning": "short"
     },
     {
-      "character": "多",
-      "pinyin": "duō",
-      "meaning": "many, much"
-    },
-    {
-      "character": "少",
-      "pinyin": "shǎo",
-      "meaning": "few, little"
-    },
-    {
-      "character": "忙",
-      "pinyin": "máng",
-      "meaning": "busy"
-    },
-    {
-      "character": "早",
-      "pinyin": "zǎo",
-      "meaning": "early"
-    },
-    {
-      "character": "晚",
-      "pinyin": "wǎn",
-      "meaning": "late"
-    },
-    {
-      "character": "右",
-      "pinyin": "yòu",
-      "meaning": "right (direction)"
-    },
-    {
-      "character": "左",
-      "pinyin": "zuǒ",
-      "meaning": "left (direction)"
-    },
-    {
-      "character": "后",
-      "pinyin": "hòu",
-      "meaning": "behind, after"
-    },
-    {
-      "character": "前",
-      "pinyin": "qián",
-      "meaning": "front, before"
-    },
-    {
-      "character": "再",
-      "pinyin": "zài",
-      "meaning": "again"
-    },
-    {
-      "character": "也",
-      "pinyin": "yě",
-      "meaning": "also"
-    },
-    {
-      "character": "都",
-      "pinyin": "dōu",
-      "meaning": "all, both"
-    },
-    {
-      "character": "什",
-      "pinyin": "shén",
-      "meaning": "what"
-    },
-    {
-      "character": "么",
-      "pinyin": "me",
-      "meaning": "suffix for questions"
-    },
-    {
-      "character": "请",
-      "pinyin": "qǐng",
-      "meaning": "please"
-    },
-    {
-      "character": "对",
-      "pinyin": "duì",
-      "meaning": "correct, yes"
-    },
-    {
-      "character": "错",
-      "pinyin": "cuò",
-      "meaning": "wrong"
-    },
-    {
-      "character": "起",
-      "pinyin": "qǐ",
-      "meaning": "to rise, start"
-    },
-    {
-      "character": "爱",
-      "pinyin": "ài",
-      "meaning": "love"
-    },
-    {
-      "character": "笑",
-      "pinyin": "xiào",
-      "meaning": "to smile, laugh"
-    },
-    {
-      "character": "真",
-      "pinyin": "zhēn",
-      "meaning": "true, real"
-    },
-    {
-      "character": "里",
-      "pinyin": "lǐ",
-      "meaning": "inside"
-    },
-    {
-      "character": "外",
-      "pinyin": "wài",
-      "meaning": "outside"
-    },
-    {
-      "character": "美",
-      "pinyin": "měi",
-      "meaning": "beautiful"
-    },
-    {
-      "character": "难",
-      "pinyin": "nán",
-      "meaning": "difficult"
-    },
-    {
-      "character": "坏",
-      "pinyin": "huài",
-      "meaning": "bad"
-    },
-    {
       "character": "高",
       "pinyin": "gāo",
-      "meaning": "tall, high"
+      "meaning": "tall"
     },
     {
-      "character": "矮",
-      "pinyin": "ǎi",
-      "meaning": "short (height)"
+      "character": "低",
+      "pinyin": "dī",
+      "meaning": "low"
     },
     {
-      "character": "远",
-      "pinyin": "yuǎn",
-      "meaning": "far"
+      "character": "热",
+      "pinyin": "rè",
+      "meaning": "hot"
     },
     {
-      "character": "近",
-      "pinyin": "jìn",
-      "meaning": "near"
+      "character": "冷",
+      "pinyin": "lěng",
+      "meaning": "cold"
     },
     {
       "character": "快",
@@ -938,44 +808,69 @@
       "meaning": "slow"
     },
     {
-      "character": "工",
-      "pinyin": "gōng",
-      "meaning": "work"
+      "character": "早",
+      "pinyin": "zǎo",
+      "meaning": "early"
     },
     {
-      "character": "做",
-      "pinyin": "zuò",
-      "meaning": "to do, to make"
+      "character": "晚",
+      "pinyin": "wǎn",
+      "meaning": "late"
     },
     {
-      "character": "知",
-      "pinyin": "zhī",
-      "meaning": "to know"
+      "character": "左",
+      "pinyin": "zuǒ",
+      "meaning": "left"
     },
     {
-      "character": "国",
-      "pinyin": "guó",
-      "meaning": "country"
+      "character": "右",
+      "pinyin": "yòu",
+      "meaning": "right"
     },
     {
-      "character": "走",
-      "pinyin": "zǒu",
-      "meaning": "to walk"
+      "character": "前",
+      "pinyin": "qián",
+      "meaning": "front"
     },
     {
-      "character": "课",
-      "pinyin": "kè",
-      "meaning": "lesson"
+      "character": "后",
+      "pinyin": "hòu",
+      "meaning": "back"
     },
     {
-      "character": "找",
-      "pinyin": "zhǎo",
-      "meaning": "to look for"
+      "character": "多",
+      "pinyin": "duō",
+      "meaning": "many"
+    },
+    {
+      "character": "少",
+      "pinyin": "shǎo",
+      "meaning": "few"
+    },
+    {
+      "character": "远",
+      "pinyin": "yuǎn",
+      "meaning": "far"
+    },
+    {
+      "character": "近",
+      "pinyin": "jìn",
+      "meaning": "near"
+    },
+    {
+      "character": "宽",
+      "pinyin": "kuān",
+      "meaning": "wide"
+    },
+    {
+      "character": "窄",
+      "pinyin": "zhǎi",
+      "meaning": "narrow"
     },
     {
       "character": "旧",
       "pinyin": "jiù",
-      "meaning": "old (not new)"
+      "meaning": "old"
     },
     {
       "character": "新",
@@ -983,79 +878,19 @@
       "meaning": "new"
     },
     {
-      "character": "时",
-      "pinyin": "shí",
-      "meaning": "time"
+      "character": "难",
+      "pinyin": "nán",
+      "meaning": "difficult"
     },
     {
-      "character": "月",
-      "pinyin": "yuè",
-      "meaning": "month, moon"
+      "character": "易",
+      "pinyin": "yì",
+      "meaning": "easy"
     },
     {
-      "character": "日",
-      "pinyin": "rì",
-      "meaning": "day, sun"
-    },
-    {
-      "character": "周",
-      "pinyin": "zhōu",
-      "meaning": "week"
-    },
-    {
-      "character": "星期",
-      "pinyin": "xīngqī",
-      "meaning": "week (as in Monday, Tuesday, etc.)"
-    },
-    {
-      "character": "明",
-      "pinyin": "míng",
-      "meaning": "bright"
-    },
-    {
-      "character": "暗",
-      "pinyin": "àn",
-      "meaning": "dark"
-    },
-    {
-      "character": "大",
-      "pinyin": "dà",
-      "meaning": "big"
-    },
-    {
-      "character": "小",
-      "pinyin": "xiǎo",
-      "meaning": "small"
-    },
-    {
-      "character": "长",
-      "pinyin": "cháng",
-      "meaning": "long"
-    },
-    {
-      "character": "短",
-      "pinyin": "duǎn",
-      "meaning": "short"
-    },
-    {
-      "character": "多",
-      "pinyin": "duō",
-      "meaning": "many, much"
-    },
-    {
-      "character": "少",
-      "pinyin": "shǎo",
-      "meaning": "few, little"
-    },
-    {
-      "character": "好",
-      "pinyin": "hǎo",
-      "meaning": "good"
-    },
-    {
-      "character": "坏",
-      "pinyin": "huài",
-      "meaning": "bad"
+      "character": "矮",
+      "pinyin": "ǎi",
+      "meaning": "short (height)"
     }
   ],
   "HSK3": [
@@ -1195,19 +1030,9 @@
       "meaning": "time"
     },
     {
-      "character": "又",
-      "pinyin": "yòu",
-      "meaning": "again, also"
-    },
-    {
       "character": "下",
       "pinyin": "xià",
       "meaning": "down, under"
-    },
-    {
-      "character": "没",
-      "pinyin": "méi",
-      "meaning": "not, none"
     },
     {
       "character": "同",
@@ -1228,11 +1053,6 @@
       "character": "长",
       "pinyin": "cháng",
       "meaning": "long"
-    },
-    {
-      "character": "时",
-      "pinyin": "shí",
-      "meaning": "time"
     },
     {
       "character": "间",
@@ -1278,16 +1098,6 @@
       "character": "电",
       "pinyin": "diàn",
       "meaning": "electricity"
-    },
-    {
-      "character": "走",
-      "pinyin": "zǒu",
-      "meaning": "to walk, to go"
-    },
-    {
-      "character": "门",
-      "pinyin": "mén",
-      "meaning": "door, gate"
     },
     {
       "character": "美",
@@ -1355,11 +1165,6 @@
       "meaning": "love"
     },
     {
-      "character": "头",
-      "pinyin": "tóu",
-      "meaning": "head"
-    },
-    {
       "character": "友",
       "pinyin": "yǒu",
       "meaning": "friend"
@@ -1398,11 +1203,6 @@
       "character": "重",
       "pinyin": "zhòng",
       "meaning": "heavy"
-    },
-    {
-      "character": "快",
-      "pinyin": "kuài",
-      "meaning": "fast"
     },
     {
       "character": "树",
@@ -1447,37 +1247,62 @@
     {
       "character": "相",
       "pinyin": "xiāng",
-      "meaning": "mutual"
+      "meaning": "each other"
     },
     {
-      "character": "饭",
-      "pinyin": "fàn",
-      "meaning": "meal"
+      "character": "情",
+      "pinyin": "qíng",
+      "meaning": "feeling, emotion"
     },
     {
-      "character": "练",
-      "pinyin": "liàn",
-      "meaning": "to practice"
+      "character": "平",
+      "pinyin": "píng",
+      "meaning": "flat, peace"
     },
     {
-      "character": "想",
-      "pinyin": "xiǎng",
-      "meaning": "to think"
+      "character": "阶",
+      "pinyin": "jiē",
+      "meaning": "step, grade"
     },
     {
-      "character": "干",
-      "pinyin": "gàn",
-      "meaning": "to do"
+      "character": "类",
+      "pinyin": "lèi",
+      "meaning": "type, category"
     },
     {
-      "character": "到",
-      "pinyin": "dào",
-      "meaning": "to arrive"
+      "character": "同",
+      "pinyin": "tóng",
+      "meaning": "same"
     },
     {
-      "character": "算",
-      "pinyin": "suàn",
-      "meaning": "to calculate"
+      "character": "安",
+      "pinyin": "ān",
+      "meaning": "safe, peaceful"
+    },
+    {
+      "character": "低",
+      "pinyin": "dī",
+      "meaning": "low"
+    },
+    {
+      "character": "交",
+      "pinyin": "jiāo",
+      "meaning": "to intersect"
+    },
+    {
+      "character": "赛",
+      "pinyin": "sài",
+      "meaning": "competition"
+    },
+    {
+      "character": "聊",
+      "pinyin": "liáo",
+      "meaning": "to chat"
+    },
+    {
+      "character": "换",
+      "pinyin": "huàn",
+      "meaning": "to change"
     }
   ],
   "HSK4": [
@@ -1940,6 +1765,361 @@
       "character": "答",
       "pinyin": "dá",
       "meaning": "to answer"
+    },
+    {
+      "character": "情",
+      "pinyin": "qíng",
+      "meaning": "feeling, emotion"
+    },
+    {
+      "character": "该",
+      "pinyin": "gāi",
+      "meaning": "should, ought to"
+    },
+    {
+      "character": "整",
+      "pinyin": "zhěng",
+      "meaning": "whole, complete"
+    },
+    {
+      "character": "遇",
+      "pinyin": "yù",
+      "meaning": "to meet"
+    },
+    {
+      "character": "越",
+      "pinyin": "yuè",
+      "meaning": "more and more"
+    },
+    {
+      "character": "流",
+      "pinyin": "liú",
+      "meaning": "to flow"
+    },
+    {
+      "character": "知",
+      "pinyin": "zhī",
+      "meaning": "to know"
+    },
+    {
+      "character": "止",
+      "pinyin": "zhǐ",
+      "meaning": "to stop"
+    },
+    {
+      "character": "信",
+      "pinyin": "xìn",
+      "meaning": "trust, letter"
+    },
+    {
+      "character": "段",
+      "pinyin": "duàn",
+      "meaning": "section, segment"
+    },
+    {
+      "character": "电",
+      "pinyin": "diàn",
+      "meaning": "electricity"
+    },
+    {
+      "character": "接",
+      "pinyin": "jiē",
+      "meaning": "to connect, to receive"
+    },
+    {
+      "character": "约",
+      "pinyin": "yuē",
+      "meaning": "to make an appointment"
+    },
+    {
+      "character": "担",
+      "pinyin": "dān",
+      "meaning": "to bear, to carry"
+    },
+    {
+      "character": "马",
+      "pinyin": "mǎ",
+      "meaning": "horse"
+    },
+    {
+      "character": "历",
+      "pinyin": "lì",
+      "meaning": "experience, calendar"
+    },
+    {
+      "character": "告",
+      "pinyin": "gào",
+      "meaning": "to inform, to tell"
+    },
+    {
+      "character": "属",
+      "pinyin": "shǔ",
+      "meaning": "to belong to"
+    },
+    {
+      "character": "政",
+      "pinyin": "zhèng",
+      "meaning": "politics"
+    },
+    {
+      "character": "意",
+      "pinyin": "yì",
+      "meaning": "meaning, idea"
+    },
+    {
+      "character": "标",
+      "pinyin": "biāo",
+      "meaning": "sign, mark"
+    },
+    {
+      "character": "幸",
+      "pinyin": "xìng",
+      "meaning": "fortunate, lucky"
+    },
+    {
+      "character": "毕",
+      "pinyin": "bì",
+      "meaning": "to finish"
+    },
+    {
+      "character": "装",
+      "pinyin": "zhuāng",
+      "meaning": "to decorate, to install"
+    },
+    {
+      "character": "证",
+      "pinyin": "zhèng",
+      "meaning": "certificate, proof"
+    },
+    {
+      "character": "普",
+      "pinyin": "pǔ",
+      "meaning": "universal, common"
+    },
+    {
+      "character": "远",
+      "pinyin": "yuǎn",
+      "meaning": "far"
+    },
+    {
+      "character": "细",
+      "pinyin": "xì",
+      "meaning": "fine, detailed"
+    },
+    {
+      "character": "跑",
+      "pinyin": "pǎo",
+      "meaning": "to run"
+    },
+    {
+      "character": "盘",
+      "pinyin": "pán",
+      "meaning": "plate, disk"
+    },
+    {
+      "character": "稳",
+      "pinyin": "wěn",
+      "meaning": "stable"
+    },
+    {
+      "character": "货",
+      "pinyin": "huò",
+      "meaning": "goods"
+    },
+    {
+      "character": "总",
+      "pinyin": "zǒng",
+      "meaning": "total, general"
+    },
+    {
+      "character": "息",
+      "pinyin": "xī",
+      "meaning": "to rest, to stop"
+    },
+    {
+      "character": "张",
+      "pinyin": "zhāng",
+      "meaning": "to stretch, sheet"
+    },
+    {
+      "character": "找",
+      "pinyin": "zhǎo",
+      "meaning": "to find"
+    },
+    {
+      "character": "承",
+      "pinyin": "chéng",
+      "meaning": "to undertake"
+    },
+    {
+      "character": "原",
+      "pinyin": "yuán",
+      "meaning": "origin, original"
+    },
+    {
+      "character": "确",
+      "pinyin": "què",
+      "meaning": "sure, certain"
+    },
+    {
+      "character": "愿",
+      "pinyin": "yuàn",
+      "meaning": "wish, desire"
+    },
+    {
+      "character": "职",
+      "pinyin": "zhí",
+      "meaning": "post, position"
+    },
+    {
+      "character": "代",
+      "pinyin": "dài",
+      "meaning": "to replace, generation"
+    },
+    {
+      "character": "开",
+      "pinyin": "kāi",
+      "meaning": "to open"
+    },
+    {
+      "character": "还",
+      "pinyin": "hái",
+      "meaning": "still, also"
+    },
+    {
+      "character": "适",
+      "pinyin": "shì",
+      "meaning": "suitable"
+    },
+    {
+      "character": "父",
+      "pinyin": "fù",
+      "meaning": "father"
+    },
+    {
+      "character": "易",
+      "pinyin": "yì",
+      "meaning": "easy, change"
+    },
+    {
+      "character": "注",
+      "pinyin": "zhù",
+      "meaning": "to note, to focus"
+    },
+    {
+      "character": "群",
+      "pinyin": "qún",
+      "meaning": "group"
+    },
+    {
+      "character": "节",
+      "pinyin": "jié",
+      "meaning": "festival, section"
+    },
+    {
+      "character": "房",
+      "pinyin": "fáng",
+      "meaning": "room, house"
+    },
+    {
+      "character": "兴",
+      "pinyin": "xīng",
+      "meaning": "to prosper"
+    },
+    {
+      "character": "主",
+      "pinyin": "zhǔ",
+      "meaning": "master, host"
+    },
+    {
+      "character": "近",
+      "pinyin": "jìn",
+      "meaning": "near"
+    },
+    {
+      "character": "科",
+      "pinyin": "kē",
+      "meaning": "science, department"
+    },
+    {
+      "character": "实",
+      "pinyin": "shí",
+      "meaning": "real, true"
+    },
+    {
+      "character": "论",
+      "pinyin": "lùn",
+      "meaning": "theory, discuss"
+    },
+    {
+      "character": "根",
+      "pinyin": "gēn",
+      "meaning": "root"
+    },
+    {
+      "character": "带",
+      "pinyin": "dài",
+      "meaning": "belt, bring"
+    },
+    {
+      "character": "选",
+      "pinyin": "xuǎn",
+      "meaning": "to choose"
+    },
+    {
+      "character": "价",
+      "pinyin": "jià",
+      "meaning": "price"
+    },
+    {
+      "character": "奖",
+      "pinyin": "jiǎng",
+      "meaning": "award"
+    },
+    {
+      "character": "制",
+      "pinyin": "zhì",
+      "meaning": "system, to make"
+    },
+    {
+      "character": "强",
+      "pinyin": "qiáng",
+      "meaning": "strong"
+    },
+    {
+      "character": "值",
+      "pinyin": "zhí",
+      "meaning": "value"
+    },
+    {
+      "character": "才",
+      "pinyin": "cái",
+      "meaning": "talent, only then"
+    },
+    {
+      "character": "动",
+      "pinyin": "dòng",
+      "meaning": "to move"
+    },
+    {
+      "character": "招",
+      "pinyin": "zhāo",
+      "meaning": "to recruit, to call"
+    },
+    {
+      "character": "能",
+      "pinyin": "néng",
+      "meaning": "can, ability"
+    },
+    {
+      "character": "态",
+      "pinyin": "tài",
+      "meaning": "attitude"
+    },
+    {
+      "character": "商",
+      "pinyin": "shāng",
+      "meaning": "business"
     }
   ],
   "HSK5": [

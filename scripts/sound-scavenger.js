@@ -1473,10 +1473,19 @@ const pinyinWithTones = [
   // 'ru2',
   // 'ru3',
   // 'ru4',
-  'yan1',
-  'yan2',
-  'yan3',
-  'yan4'
+  // 'yan1',
+  // 'yan2',
+  // 'yan3',
+  // 'yan4'
+  // 'zou1',
+  // 'zou2',
+  // 'zou3',
+  // 'zou4',
+  // 'tiao1',
+  // 'tiao2',
+  // 'tiao3',
+  // 'tiao4',
+  'a1'
 ]
 
 // Base URL for the audio files

@@ -62,6 +62,9 @@ const App = () => {
       const data = levels.find(e => label === e.value).data
 
       allData = [...data, ...allData].sort(() => Math.random() - 0.5)
+      allData = allData.filter((item, index, self) => 
+        index === self.findIndex(obj => obj.character === item.character)
+      );
     })
 
     setCharacters(allData)
@@ -92,6 +95,10 @@ const App = () => {
     filterUsedCharacters(characters, usedCharacters).length
 
   const revealAnswer = selected => {
+    if (state !== STATES.ONGOING) {
+      return false
+    }
+
     const newCorrectAnswers =
       selected.character === character.character
         ? correctAnswers + 1
@@ -190,20 +197,18 @@ const App = () => {
                   {options.map((option, ok) => (
                     <div
                       key={`option-btn-${option.pinyin}-${ok}`}
-                      className={`btn-container ${
-                        state === STATES.REVEAL &&
+                      className={`btn-container ${state === STATES.REVEAL &&
                         (character.character === option.character
                           ? 'correct'
                           : '')
-                      }
-                   ${
-                     state === STATES.REVEAL &&
-                     storage.selectedCharacter === option.character
-                       ? character.character === option.character
-                         ? 'correct'
-                         : 'wrong'
-                       : ''
-                   }`}
+                        }
+                   ${state === STATES.REVEAL &&
+                          storage.selectedCharacter === option.character
+                          ? character.character === option.character
+                            ? 'correct'
+                            : 'wrong'
+                          : ''
+                        }`}
                     >
                       <PlaySound filename={option.character} />
                       <button
