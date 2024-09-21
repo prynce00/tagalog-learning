@@ -1,5 +1,5 @@
 import './assets/styles/index.scss'
-import HSK from './data/hsk.json'
+import HSK from './data/hsk_characters.json'
 import Select from 'react-select'
 import { useLocalStorageContext } from './providers/localStorageProvider'
 import { useEffect, useState } from 'react'
@@ -21,37 +21,30 @@ const App = () => {
   const levels = [
     {
       level: 1,
-      data: HSK.HSK1,
       value: 'HSK-1'
     },
     {
       level: 2,
-      data: HSK.HSK2,
       value: 'HSK-2'
     },
     {
       level: 3,
-      data: HSK.HSK3,
       value: 'HSK-3'
     },
     {
       level: 4,
-      data: HSK.HSK4,
       value: 'HSK-4'
     },
     {
       level: 5,
-      data: HSK.HSK5,
       value: 'HSK-5'
     },
     {
       level: 6,
-      data: HSK.HSK6,
       value: 'HSK-6'
     },
     {
-      level: 7,
-      data: HSK.ADVANCE,
+      level: "",
       value: 'Advance'
     }
   ]
@@ -59,7 +52,9 @@ const App = () => {
   const loadCharacters = () => {
     let allData = []
     currentLevels?.forEach(({ label }) => {
-      const data = levels.find(e => label === e.value).data
+      const level = levels.find(e => label === e.value).level
+
+      const data = HSK.filter(item => item.hsk === String(level));
 
       allData = [...data, ...allData].sort(() => Math.random() - 0.5)
       allData = allData.filter((item, index, self) => 

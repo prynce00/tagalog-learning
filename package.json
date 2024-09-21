@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
     "normalize.css": "^8.0.1",
     "pinyin": "^4.0.0-alpha.2",
     "pinyin-pro": "^3.24.2",
