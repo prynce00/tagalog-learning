@@ -1,19 +1,18 @@
 import React, { useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons'
-import { pinyin } from 'pinyin-pro'
+
 
 const PlaySound = ({ filename }) => {
   const audioRef = useRef(null)
+  const voice = "Zhiyu"
 
-  const processedFilename = pinyin(filename, {
-    toneType: 'num',
-    format: 'normal'
-  })
+
+ 
 
   const playSound = () => {
     if (audioRef.current) {
-      audioRef.current.src = require(`../assets/sounds/${processedFilename}.mp3`)
+      audioRef.current.src = require(`../assets/sounds/${voice}/${filename}.mp3`)
       audioRef.current
         .play()
         .then(() => {

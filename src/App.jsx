@@ -205,7 +205,7 @@ const App = () => {
                           : ''
                         }`}
                     >
-                      <PlaySound filename={option.character} />
+                      <PlaySound filename={option.pinyin} />
                       <button
                         className='option-btn'
                         onClick={() => revealAnswer(option)}
