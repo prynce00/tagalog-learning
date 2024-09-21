@@ -234,7 +234,7 @@ const App = () => {
         )}
         {state === STATES.REVEAL && (
           <div className='answer-container'>
-            <span className='info'>{character?.meaning}</span>
+            <span className='info'>{character?.definition}</span>
             <div className='action-box'>
               <ContinueBtn
                 label='Next'
