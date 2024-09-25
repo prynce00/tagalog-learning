@@ -140,10 +140,10 @@ const App = () => {
 
       newRating += rateIncrease;
     } else {
-      let rateIncrease = 1;
+      let rateIncrease = 2;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
-        rateIncrease = 3;
+        rateIncrease = 5;
       }
 
       newRating -= rateIncrease;
