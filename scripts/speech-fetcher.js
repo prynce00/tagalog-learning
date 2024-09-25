@@ -17,35 +17,37 @@ if (!fs.existsSync(soundDir)) {
 const downloadSound = async ({character, pinyin}) => {
   // Encode the pinyin to create a safe filename
   const encodedPinyin = encodeURIComponent(pinyin);
-  const voiceDir = path.join(soundDir, 'Zhiyu'); // Directory for the voice
+  const voiceDir = path.join(soundDir, 'CMN-2'); // Directory for the voice
   const filePath = path.join(voiceDir, `${encodedPinyin}.mp3`); // File path using pinyin
 
   // Check if the file already exists
   if (fs.existsSync(filePath)) {
     console.log(`File already exists for pinyin: ${pinyin}`);
-    return { character, sound: { Zhiyu: filePath } }; // Return existing sound
+    return { character, sound: { "CMN-2": filePath } }; // Return existing sound
   }
 
   const formData = new FormData();
+
   formData.append('ttv_mode', 1);
   formData.append('bgMusic', '');
-  formData.append('userID', 'guest1472761379');
-  formData.append('provider', 'aws');
+  formData.append('userID', 'guest1467508266');
+  formData.append('provider', 'google');
   formData.append('text', character);
   formData.append('voice', 'Zhiyu');
   formData.append('language', 'cmn-CN');
   formData.append('speed', 100);
   formData.append('volume', 3);
   formData.append('exaggeration', '');
-  formData.append('usePremium', 0);
-  formData.append('premium', 0);
+  formData.append('usePremium', 1);
+  formData.append('premium', 1);
   formData.append('voiceStyle', 'neutral');
   formData.append('isEmotion', 0);
   formData.append('vol', 0.3);
   formData.append('rand', 20);
   formData.append('isSample', 0);
   formData.append('useSSML', 0);
-  formData.append('voiceName', 'Zhiyu');
+  formData.append('voiceName', 'CMN-2');
+  
 
   try {
     const response = await axios.post(url, formData, {
@@ -58,6 +60,9 @@ const downloadSound = async ({character, pinyin}) => {
     const content = response.data; // Adjust if necessary to get the correct structure
     const downloadUrl = `https://www.texttovoice.online/${content.content}`; // Correct URL structure
 
+    console.log({
+      content
+    })
     const audioResponse = await axios.get(downloadUrl, { responseType: 'stream' });
 
     // Create the directory for the voice if it doesn't exist

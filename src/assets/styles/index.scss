@@ -1,5 +1,5 @@
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 button {
@@ -18,7 +18,6 @@ button {
   box-shadow: #eee 0 0 12px;
   margin: 0 auto;
 
-
   .game-info-container {
     display: flex;
     flex-direction: column;
@@ -29,11 +28,10 @@ button {
       display: flex;
       font-size: 12px;
       gap: 5px;
-     
+
       .title {
         font-weight: bold;
       }
-
     }
   }
   .game-container {
@@ -72,7 +70,7 @@ button {
         &:hover {
           background: #000000;
           color: #ffffff;
-     
+
           button {
             background: #000000;
             color: #ffffff;
@@ -131,4 +129,3 @@ button {
 button {
   cursor: pointer;
 }
-
