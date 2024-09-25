@@ -132,18 +132,18 @@ const App = () => {
     let newKnown = known;
 
     if (isCorrect) {
-      let rateIncrease = 1;
+      let rateIncrease = 0.1;
       if (!known.includes(char)) {
         newKnown.push(char);
-        rateIncrease = 3;
+        rateIncrease = 1;
       }
 
       newRating += rateIncrease;
     } else {
-      let rateIncrease = 2;
+      let rateIncrease = 1;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
-        rateIncrease = 5;
+        rateIncrease = 2;
       }
 
       newRating -= rateIncrease;
@@ -273,7 +273,7 @@ const App = () => {
         </div>
         <div className="info-item">
           <span className="title">Rating:</span>
-          <span className="value">{rating}</span>
+          <span className="value">{Math.ceil(rating)}</span>
         </div>
         <div className="info-item">
           <span
