@@ -12,6 +12,7 @@ const App = () => {
   const currentLevels = storage?.levels;
   const state = storage?.state || "reset";
   const correctAnswers = storage?.correctAnswers || 0;
+  const correctStreak = storage?.correctStreak || 0;
   const processedCharacters = storage?.processedCharacters || 0;
   const usedCharacters = storage?.usedCharacters || [];
   const rating = storage?.rating || 0;
@@ -173,10 +174,11 @@ const App = () => {
     let newRating = rating;
     let newKnown = known;
     let newMultiplier = multiplier;
+    let newCorrectStreak = correctStreak;
 
     const increaseMax = multiplier;
     const increaseMin = multiplier * 0.1;
-    const decreaseMax = multiplier + 3;
+    let decreaseMax = multiplier + 3;
 
     if (isCorrect) {
       let x = increaseMin;
@@ -185,14 +187,20 @@ const App = () => {
         x = increaseMax;
       }
       newRating += x;
+      newCorrectStreak += 1;
     } else {
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
       }
 
+      if (newCorrectStreak < 5) {
+        decreaseMax = decreaseMax * 2.5;
+      }
+
       newMultiplier -= 5;
       newMultiplier = newMultiplier < 3 ? 3 : newMultiplier;
       newRating -= decreaseMax;
+      newCorrectStreak = 0;
     }
 
     let newStoreItem = {
@@ -202,6 +210,7 @@ const App = () => {
       correctAnswers: newCorrectAnswers,
       processedCharacters: processedCharacters + 1,
       multiplier: newMultiplier,
+      correctStreak: newCorrectStreak,
     };
 
     if (mode === "rated") {
@@ -227,6 +236,7 @@ const App = () => {
       known: [],
       unknown: [],
       multiplier: 50,
+      correctStreak: 0,
     });
   };
 
