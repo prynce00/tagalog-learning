@@ -18,7 +18,7 @@ const App = () => {
   const rating = storage?.rating || 0;
   const known = storage?.known || [];
   const multiplier = storage?.multiplier || 50;
-  const [mode, setMode] = useState(storage?.mode || "normal");
+  const [mode, setMode] = useState(storage?.mode || "rated");
   const [character, setCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [options, setOptions] = useState([]);
@@ -65,7 +65,7 @@ const App = () => {
     },
   ];
 
-  const characterCount = known.length + rating * 0.5 || 10;
+  const characterCount = known.length + rating * 0.35 || 10;
 
   const loadCharacters = () => {
     let allData = [];
@@ -188,6 +188,11 @@ const App = () => {
       }
       newRating += x;
       newCorrectStreak += 1;
+
+      if (multiplier > 25) {
+        newMultiplier = newMultiplier + newCorrectStreak * 2.5;
+        newMultiplier = newMultiplier > 150 ? 150 : newMultiplier;
+      }
     } else {
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
@@ -280,7 +285,7 @@ const App = () => {
   return (
     <div className="app-container">
       <div className="level-selector">
-        <Select
+        {/* <Select
           options={modes.map(({ label, value }) => {
             return {
               value,
@@ -296,7 +301,7 @@ const App = () => {
             });
           }}
           value={modes.find((e) => e.value === mode)}
-        />
+        /> */}
         {mode === "normal" && (
           <Select
             options={levels.map((e) => {
@@ -319,9 +324,10 @@ const App = () => {
       <div className="info-container">
         <div className="game-info-container">
           <div className="info-item">
-            <span className="title">Remaining Characters:</span>
+            <span className="title">Estimated Known Characters:</span>
             <span className="value">
-              {getUserCharactersLen()}/{characters.length}
+              {/* {getUserCharactersLen()}/ */}
+              {characters.length}
             </span>
           </div>
           <div className="info-item">
