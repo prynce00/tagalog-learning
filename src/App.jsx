@@ -101,7 +101,7 @@ const App = () => {
       if (!character) {
         const randomItem = getRandomItems(characters, usedCharacters);
 
-        if (randomItem.length === 4) {
+        if (randomItem.length === 6) {
           setCharacter(randomItem[0]);
           setOptions(randomItem.sort(() => Math.random() - 0.5));
         }
