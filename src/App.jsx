@@ -16,6 +16,7 @@ const App = () => {
   const usedCharacters = storage?.usedCharacters || [];
   const rating = storage?.rating || 0;
   const known = storage?.known || [];
+  const multiplier = storage?.multiplier || 50;
   const [mode, setMode] = useState(storage?.mode || "normal");
   const [character, setCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -63,6 +64,8 @@ const App = () => {
     },
   ];
 
+  const characterCount = known.length + rating * 0.5 || 10;
+
   const loadCharacters = () => {
     let allData = [];
     currentLevels?.forEach(({ label }) => {
@@ -84,7 +87,6 @@ const App = () => {
         (a, b) => parseInt(a.hsk) - parseInt(b.hsk)
       );
 
-      const characterCount = known.length + 10;
       const characterSet = orderedLevel
         .slice(0, characterCount)
         .sort(() => 0.5 - Math.random());
@@ -117,6 +119,46 @@ const App = () => {
   const getUserCharactersLen = () =>
     filterUsedCharacters(characters, usedCharacters).length;
 
+  const getRankAndStars = (rating) => {
+    if (typeof rating !== "number" || rating < 0) {
+      return { rank: "Invalid", stars: 0, starIcons: "" };
+    }
+
+    const ranks = [
+      { name: "Beginner", min: 0, max: 3599 },
+      { name: "Elementary", min: 3600, max: 7199 },
+      { name: "Intermediate", min: 7200, max: 10799 },
+      { name: "Advanced", min: 10800, max: 13399 },
+      { name: "Proficient", min: 13400, max: 15999 },
+      { name: "Master", min: 16000, max: 17399 },
+      { name: "Grandmaster", min: 17400, max: 17999 },
+      { name: "Native", min: 18000, max: 18500 },
+    ];
+
+    for (let rank of ranks) {
+      if (rating >= rank.min && rating <= rank.max) {
+        const stars =
+          rank.name === "Native" ? 5 : Math.floor((rating - rank.min) / 720);
+        const starIcons = "★".repeat(stars + 1);
+        return {
+          rank: rank.name,
+          stars: stars + 1,
+          starIcons: starIcons,
+        };
+      }
+    }
+
+    // If rating is beyond 18500
+    if (rating > 18500) {
+      const starIcons = "★".repeat(5); // Maximum stars
+      return {
+        rank: "语言之神", // God of Language in Chinese
+        stars: 5, // Maximum stars
+        starIcons: starIcons,
+      };
+    }
+  };
+
   const revealAnswer = (selected) => {
     if (state !== STATES.ONGOING) {
       return false;
@@ -130,23 +172,27 @@ const App = () => {
 
     let newRating = rating;
     let newKnown = known;
+    let newMultiplier = multiplier;
+
+    const increaseMax = multiplier;
+    const increaseMin = multiplier * 0.1;
+    const decreaseMax = multiplier + 3;
 
     if (isCorrect) {
-      let rateIncrease = 0.1;
+      let x = increaseMin;
       if (!known.includes(char)) {
         newKnown.push(char);
-        rateIncrease = 1;
+        x = increaseMax;
       }
-
-      newRating += rateIncrease;
+      newRating += x;
     } else {
-      let rateIncrease = 1;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
-        rateIncrease = 2;
       }
 
-      newRating -= rateIncrease;
+      newMultiplier -= 5;
+      newMultiplier = newMultiplier < 3 ? 3 : newMultiplier;
+      newRating -= decreaseMax;
     }
 
     let newStoreItem = {
@@ -155,6 +201,7 @@ const App = () => {
       usedCharacters: [...usedCharacters, character],
       correctAnswers: newCorrectAnswers,
       processedCharacters: processedCharacters + 1,
+      multiplier: newMultiplier,
     };
 
     if (mode === "rated") {
@@ -179,6 +226,7 @@ const App = () => {
       rating: 0,
       known: [],
       unknown: [],
+      multiplier: 50,
     });
   };
 
@@ -191,7 +239,7 @@ const App = () => {
 
   useEffect(() => {
     loadCharacters();
-  }, [currentLevels, mode]);
+  }, [currentLevels, mode, characterCount]);
 
   useEffect(() => {
     handleStates();
@@ -258,35 +306,40 @@ const App = () => {
           />
         )}
       </div>
-      <div className="game-info-container">
-        <div className="info-item">
-          <span className="title">Remaining Characters:</span>
-          <span className="value">
-            {getUserCharactersLen()}/{characters.length}
-          </span>
+      <div className="info-container">
+        <div className="game-info-container">
+          <div className="info-item">
+            <span className="title">Remaining Characters:</span>
+            <span className="value">
+              {getUserCharactersLen()}/{characters.length}
+            </span>
+          </div>
+          <div className="info-item">
+            <span className="title">Accuracy:</span>
+            <span className="value">
+              {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
+            </span>
+          </div>
+          <div className="info-item">
+            <span
+              className="value"
+              onClick={() => {
+                setStorage({
+                  state: STATES.ONGOING,
+                });
+                reset();
+              }}
+            >
+              --Reset Rating
+            </span>
+          </div>
         </div>
-        <div className="info-item">
-          <span className="title">Accuracy:</span>
-          <span className="value">
-            {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
-          </span>
-        </div>
-        <div className="info-item">
-          <span className="title">Rating:</span>
-          <span className="value">{Math.ceil(rating)}</span>
-        </div>
-        <div className="info-item">
-          <span
-            className="value"
-            onClick={() => {
-              setStorage({
-                state: STATES.ONGOING,
-              });
-              reset();
-            }}
-          >
-            --Reset Rating
-          </span>
+        <div className="level-info-container">
+          <div className="rank-box">
+            <span className="stars">{getRankAndStars(rating).starIcons}</span>
+            <span className="rank">{getRankAndStars(rating).rank}</span>
+            <span className="rating">({Math.ceil(rating)})</span>
+          </div>
         </div>
       </div>
       <div className="game-container">

@@ -18,6 +18,37 @@ button {
   box-shadow: #eee 0 0 12px;
   margin: 0 auto;
 
+  .info-container {
+    display: flex;
+  }
+  .level-info-container {
+    margin-left: auto;
+    width: fit-content;
+    padding-right: 10px;
+
+    .rank-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .rank {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        letter-spacing: 5px;
+        font-size: 12px;
+      }
+      .stars {
+        width: fit-content;
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: -5px;
+      }
+    }
+  }
+
   .game-info-container {
     display: flex;
     flex-direction: column;
