@@ -189,7 +189,7 @@ const App = () => {
       newRating += x;
       newCorrectStreak += 1;
 
-      if (multiplier > 25) {
+      if (multiplier > 40) {
         newMultiplier = newMultiplier + newCorrectStreak * 2.5;
         newMultiplier = newMultiplier > 150 ? 150 : newMultiplier;
       }
@@ -200,6 +200,10 @@ const App = () => {
 
       if (newCorrectStreak < 5) {
         decreaseMax = decreaseMax * 2.5;
+      }
+
+      if (newMultiplier > 50) {
+        newMultiplier = newMultiplier * 0.8;
       }
 
       newMultiplier -= 5;
@@ -334,6 +338,12 @@ const App = () => {
             <span className="title">Accuracy:</span>
             <span className="value">
               {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
+            </span>
+          </div>
+          <div className="info-item">
+            <span className="title">Status:</span>
+            <span className="value">
+              {multiplier > 3 ? "Calibrating" : "Ranked Identified"}
             </span>
           </div>
           <div className="info-item">
