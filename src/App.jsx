@@ -17,8 +17,6 @@ const App = () => {
   const usedCharacters = storage?.usedCharacters || [];
   const rating = storage?.rating || 0;
   const known = storage?.known || [];
-  const multiplier = storage?.multiplier || 50;
-  const [mode, setMode] = useState(storage?.mode || "rated");
   const [character, setCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [options, setOptions] = useState([]);
@@ -54,46 +52,29 @@ const App = () => {
     },
   ];
 
-  const modes = [
-    {
-      value: "normal",
-      label: "Normal",
-    },
-    {
-      value: "rated",
-      label: "Rated",
-    },
-  ];
-
   const characterCount = known.length + rating * 0.35 || 10;
 
   const loadCharacters = () => {
-    let allData = [];
-    currentLevels?.forEach(({ label }) => {
-      const level = levels.find((e) => label === e.value).level;
+    // let allData = [];
+    // currentLevels?.forEach(({ label }) => {
+    //   const level = levels.find((e) => label === e.value).level;
 
-      const data = HSK.filter((item) => item.hsk === String(level));
+    //   const data = HSK.filter((item) => item.hsk === String(level));
 
-      allData = [...data, ...allData].sort(() => Math.random() - 0.5);
-      allData = allData.filter(
-        (item, index, self) =>
-          index === self.findIndex((obj) => obj.character === item.character)
-      );
-    });
+    //   allData = [...data, ...allData].sort(() => Math.random() - 0.5);
+    //   allData = allData.filter(
+    //     (item, index, self) =>
+    //       index === self.findIndex((obj) => obj.character === item.character)
+    //   );
+    // });
 
-    if (mode === "normal") {
-      setCharacters(allData);
-    } else {
-      const orderedLevel = HSK.sort(
-        (a, b) => parseInt(a.hsk) - parseInt(b.hsk)
-      );
+    const orderedLevel = HSK.sort((a, b) => parseInt(a.hsk) - parseInt(b.hsk));
 
-      const characterSet = orderedLevel
-        .slice(0, characterCount)
-        .sort(() => 0.5 - Math.random());
+    const characterSet = orderedLevel
+      .slice(0, characterCount)
+      .sort(() => 0.5 - Math.random());
 
-      setCharacters(characterSet);
-    }
+    setCharacters(characterSet);
   };
 
   const handleStates = () => {
@@ -125,38 +106,35 @@ const App = () => {
       return { rank: "Invalid", stars: 0, starIcons: "" };
     }
 
+    // Cap rating to a maximum of 10,000
+    rating = Math.min(rating, 10000);
+
     const ranks = [
-      { name: "Beginner", min: 0, max: 3599 },
-      { name: "Elementary", min: 3600, max: 7199 },
-      { name: "Intermediate", min: 7200, max: 10799 },
-      { name: "Advanced", min: 10800, max: 13399 },
-      { name: "Proficient", min: 13400, max: 15999 },
-      { name: "Master", min: 16000, max: 17399 },
-      { name: "Grandmaster", min: 17400, max: 17999 },
-      { name: "Native", min: 18000, max: 18500 },
+      { name: "Beginner", min: 0, max: 749 },
+      { name: "Elementary", min: 750, max: 1499 },
+      { name: "Intermediate", min: 1500, max: 2499 },
+      { name: "Advanced", min: 2500, max: 4999 },
+      { name: "Proficient", min: 5000, max: 10000 },
     ];
 
     for (let rank of ranks) {
       if (rating >= rank.min && rating <= rank.max) {
-        const stars =
-          rank.name === "Native" ? 5 : Math.floor((rating - rank.min) / 720);
-        const starIcons = "★".repeat(stars + 1);
+        const range = rank.max - rank.min + 1;
+        let stars;
+
+        if (rank.name === "Proficient") {
+          stars = 5;
+        } else {
+          stars = Math.max(1, Math.floor((rating - rank.min) / (range / 5)));
+        }
+
+        const starIcons = "★".repeat(stars);
         return {
           rank: rank.name,
-          stars: stars + 1,
+          stars: stars,
           starIcons: starIcons,
         };
       }
-    }
-
-    // If rating is beyond 18500
-    if (rating > 18500) {
-      const starIcons = "★".repeat(5); // Maximum stars
-      return {
-        rank: "语言之神", // God of Language in Chinese
-        stars: 5, // Maximum stars
-        starIcons: starIcons,
-      };
     }
   };
 
@@ -173,43 +151,20 @@ const App = () => {
 
     let newRating = rating;
     let newKnown = known;
-    let newMultiplier = multiplier;
-    let newCorrectStreak = correctStreak;
-
-    const increaseMax = multiplier;
-    const increaseMin = multiplier * 0.1;
-    let decreaseMax = multiplier + 3;
 
     if (isCorrect) {
-      let x = increaseMin;
+      let x = 0.1;
       if (!known.includes(char)) {
         newKnown.push(char);
-        x = increaseMax;
+        x = 1;
       }
       newRating += x;
-      newCorrectStreak += 1;
-
-      if (multiplier > 40) {
-        newMultiplier = newMultiplier + newCorrectStreak * 2.5;
-        newMultiplier = newMultiplier > 150 ? 150 : newMultiplier;
-      }
     } else {
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
       }
 
-      if (newCorrectStreak < 5) {
-        decreaseMax = decreaseMax * 2.5;
-      }
-
-      if (newMultiplier > 50) {
-        newMultiplier = newMultiplier * 0.8;
-      }
-
-      newMultiplier -= 5;
-      newMultiplier = newMultiplier < 3 ? 3 : newMultiplier;
-      newRating -= decreaseMax;
-      newCorrectStreak = 0;
+      newRating -= 5;
     }
 
     let newStoreItem = {
@@ -218,17 +173,9 @@ const App = () => {
       usedCharacters: [...usedCharacters, character],
       correctAnswers: newCorrectAnswers,
       processedCharacters: processedCharacters + 1,
-      multiplier: newMultiplier,
-      correctStreak: newCorrectStreak,
+      rating: newRating > 0 ? newRating : 0,
+      known: newKnown,
     };
-
-    if (mode === "rated") {
-      newStoreItem = {
-        ...newStoreItem,
-        rating: newRating > 0 ? newRating : 0,
-        known: newKnown,
-      };
-    }
 
     setStorage(newStoreItem);
   };
@@ -244,8 +191,6 @@ const App = () => {
       rating: 0,
       known: [],
       unknown: [],
-      multiplier: 50,
-      correctStreak: 0,
     });
   };
 
@@ -258,18 +203,16 @@ const App = () => {
 
   useEffect(() => {
     loadCharacters();
-  }, [currentLevels, mode, characterCount]);
+  }, [currentLevels]);
 
   useEffect(() => {
     handleStates();
 
-    if (mode === "rated") {
-      if (getUserCharactersLen() <= 0) {
-        setStorage({
-          usedCharacters: [],
-        });
-        loadCharacters();
-      }
+    if (getUserCharactersLen() <= 0) {
+      setStorage({
+        usedCharacters: [],
+      });
+      loadCharacters();
     }
   }, [state, characters]);
 
@@ -290,24 +233,6 @@ const App = () => {
     <div className="app-container">
       <div className="level-selector">
         {/* <Select
-          options={modes.map(({ label, value }) => {
-            return {
-              value,
-              label,
-            };
-          })}
-          placeholder="Select Mode"
-          onChange={(e) => {
-            const newMode = e.value;
-            setMode(newMode);
-            setStorage({
-              mode: newMode,
-            });
-          }}
-          value={modes.find((e) => e.value === mode)}
-        /> */}
-        {mode === "normal" && (
-          <Select
             options={levels.map((e) => {
               return {
                 value: e.level,
@@ -322,28 +247,28 @@ const App = () => {
               });
             }}
             value={currentLevels}
-          />
-        )}
+          /> */}
       </div>
       <div className="info-container">
         <div className="game-info-container">
           <div className="info-item">
-            <span className="title">Estimated Known Characters:</span>
-            <span className="value">
-              {/* {getUserCharactersLen()}/ */}
-              {characters.length}
+            <span className="title" title="Queued Characters">
+              QC:
             </span>
+            <span className="value">
+              {getUserCharactersLen()}/{characters.length}
+            </span>
+          </div>
+          <div className="info-item">
+            <span className="title" title="Estimated Known Characters">
+              EKC:
+            </span>
+            <span className="value">{known.length}</span>
           </div>
           <div className="info-item">
             <span className="title">Accuracy:</span>
             <span className="value">
               {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
-            </span>
-          </div>
-          <div className="info-item">
-            <span className="title">Status:</span>
-            <span className="value">
-              {multiplier > 3 ? "Calibrating" : "Ranked Identified"}
             </span>
           </div>
           <div className="info-item">
@@ -364,7 +289,7 @@ const App = () => {
           <div className="rank-box">
             <span className="stars">{getRankAndStars(rating).starIcons}</span>
             <span className="rank">{getRankAndStars(rating).rank}</span>
-            <span className="rating">({Math.ceil(rating)})</span>
+            <span className="rating">({Math.floor(rating)})</span>
           </div>
         </div>
       </div>
@@ -434,14 +359,14 @@ const App = () => {
                   });
                 }}
               />
-              {mode === "normal" && (
+              {/* {mode === "normal" && (
                 <ContinueBtn
                   label="Reset"
                   action={() => {
                     reset();
                   }}
                 />
-              )}
+              )} */}
             </div>
           </div>
         )}

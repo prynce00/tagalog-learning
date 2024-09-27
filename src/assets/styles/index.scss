@@ -31,6 +31,7 @@ button {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 10px;
 
       .rank {
         text-transform: uppercase;
@@ -44,7 +45,6 @@ button {
         font-size: 30px;
         padding: 0;
         margin: 0;
-        margin-bottom: -5px;
       }
     }
   }
