@@ -12,7 +12,6 @@ const App = () => {
   const currentLevels = storage?.levels;
   const state = storage?.state || "reset";
   const correctAnswers = storage?.correctAnswers || 0;
-  const correctStreak = storage?.correctStreak || 0;
   const processedCharacters = storage?.processedCharacters || 0;
   const usedCharacters = storage?.usedCharacters || [];
   const rating = storage?.rating || 0;
@@ -52,7 +51,7 @@ const App = () => {
     },
   ];
 
-  const characterCount = known.length + rating * 0.35 || 10;
+  const characterCount = known.length + 10;
 
   const loadCharacters = () => {
     // let allData = [];
