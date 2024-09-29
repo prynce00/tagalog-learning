@@ -5,7 +5,7 @@ import { useLocalStorageContext } from "./providers/localStorageProvider";
 import { useEffect, useState } from "react";
 import { STATES } from "./contants";
 import { filterUsedCharacters, getRandomItems } from "./helpers";
-import PlaySound from "./components/playSound";
+import PlaySound, { usePlaySound } from "./components/playSound";
 
 const App = () => {
   const { storage, setStorage } = useLocalStorageContext();
@@ -19,7 +19,7 @@ const App = () => {
   const [character, setCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [options, setOptions] = useState([]);
-
+  const playSound = usePlaySound(character?.pinyin);
   const levels = [
     {
       level: 1,
@@ -143,6 +143,9 @@ const App = () => {
     }
 
     const char = character.character;
+
+    // Play sound
+    playSound();
 
     const isCorrect = selected.character === char;
 
