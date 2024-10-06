@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { STATES } from "./contants";
 import { filterUsedCharacters, getRandomItems } from "./helpers";
 import PlaySound, { usePlaySound } from "./components/playSound";
+import useKeyPress from "./hooks/useKeyPress";
 
 const App = () => {
   const { storage, setStorage } = useLocalStorageContext();
@@ -20,6 +21,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [options, setOptions] = useState([]);
   const playSound = usePlaySound(character?.pinyin);
+  const { isSpacePressed, characterPressed } = useKeyPress();
   const levels = [
     {
       level: 1,
@@ -51,6 +53,8 @@ const App = () => {
     },
   ];
 
+  const finalRating = (rating + known.length) / 2;
+
   const characterCount = known.length + 10;
 
   const loadCharacters = () => {
@@ -75,6 +79,33 @@ const App = () => {
 
     setCharacters(characterSet);
   };
+
+  useEffect(() => {
+    if (isSpacePressed && state === STATES.REVEAL) {
+      setCharacter(null);
+      setStorage({
+        selectedCharacter: null,
+        state: STATES.ONGOING,
+      });
+    }
+  }, [isSpacePressed]);
+
+  useEffect(() => {
+    const shortcuts = {
+      E: 0,
+      I: 1,
+      D: 2,
+      J: 3,
+      C: 4,
+      N: 5,
+    };
+
+    const optionkey = shortcuts[characterPressed];
+
+    if (state === STATES.ONGOING && optionkey !== undefined) {
+      document.querySelectorAll(".option-btn")[optionkey].click();
+    }
+  }, [characterPressed]);
 
   const handleStates = () => {
     if (state === STATES.ONGOING) {
@@ -289,9 +320,11 @@ const App = () => {
         </div>
         <div className="level-info-container">
           <div className="rank-box">
-            <span className="stars">{getRankAndStars(rating).starIcons}</span>
-            <span className="rank">{getRankAndStars(rating).rank}</span>
-            <span className="rating">({Math.floor(rating)})</span>
+            <span className="stars">
+              {getRankAndStars(finalRating).starIcons}
+            </span>
+            <span className="rank">{getRankAndStars(finalRating).rank}</span>
+            <span className="rating">({Math.floor(finalRating)})</span>
           </div>
         </div>
       </div>
