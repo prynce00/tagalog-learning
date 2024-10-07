@@ -139,12 +139,33 @@ const App = () => {
     // Cap rating to a maximum of 10,000
     rating = Math.min(rating, 10000);
 
+    // Define ranks with adjusted names
     const ranks = [
-      { name: "Beginner", min: 0, max: 749 },
-      { name: "Elementary", min: 750, max: 1499 },
-      { name: "Intermediate", min: 1500, max: 2499 },
-      { name: "Advanced", min: 2500, max: 4999 },
-      { name: "Proficient", min: 5000, max: 10000 },
+      { name: "Novice", min: 0, max: 99 },
+      { name: "Beginner", min: 100, max: 224 },
+      { name: "Aspiring", min: 225, max: 349 },
+      { name: "Learner", min: 350, max: 474 },
+      { name: "Elementary", min: 475, max: 599 },
+      { name: "Explorer", min: 600, max: 724 },
+      { name: "Intermediate", min: 725, max: 849 },
+      { name: "Adventurer", min: 850, max: 974 },
+      { name: "Achiever", min: 975, max: 1099 },
+      { name: "Advanced", min: 1100, max: 1224 },
+      { name: "Expert", min: 1225, max: 1349 },
+      { name: "Master", min: 1350, max: 1474 },
+      { name: "Virtuoso", min: 1475, max: 1599 },
+      { name: "Adept", min: 1600, max: 1724 },
+      { name: "Savant", min: 1725, max: 1849 },
+      { name: "Legend", min: 1850, max: 2249 },
+      { name: "Champion", min: 2250, max: 3249 },
+      { name: "Hero", min: 3250, max: 4500 },
+      { name: "Conqueror", min: 4501, max: 5750 },
+      { name: "Invincible", min: 5751, max: 7000 },
+      { name: "Titan", min: 7001, max: 8000 },
+      { name: "Overlord", min: 8001, max: 8500 },
+      { name: "Supreme", min: 8501, max: 9000 },
+      { name: "Master", min: 9001, max: 9500 },
+      { name: "Deity", min: 9501, max: 10000 },
     ];
 
     for (let rank of ranks) {
@@ -152,8 +173,8 @@ const App = () => {
         const range = rank.max - rank.min + 1;
         let stars;
 
-        if (rank.name === "Proficient") {
-          stars = 5;
+        if (rank.name === "Deity") {
+          stars = 5; // Maximum stars for Deity
         } else {
           stars = Math.max(1, Math.floor((rating - rank.min) / (range / 5)));
         }
@@ -166,6 +187,8 @@ const App = () => {
         };
       }
     }
+
+    return { rank: "Unknown", stars: 0, starIcons: "" }; // Fallback case
   };
 
   const revealAnswer = (selected) => {
@@ -193,11 +216,13 @@ const App = () => {
       }
       newRating += x;
     } else {
+      let subtra = 0.1;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
+        subtra = 4;
       }
 
-      newRating -= 5;
+      newRating -= subtra;
     }
 
     let newStoreItem = {
