@@ -209,17 +209,17 @@ const App = () => {
     let newKnown = known;
 
     if (isCorrect) {
-      let x = 0.08;
+      let x = 0.25;
       if (!known.includes(char)) {
         newKnown.push(char);
         x = 1;
       }
       newRating += x;
     } else {
-      let subtra = 2;
+      let subtra = 1.5;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
-        subtra = 4;
+        subtra = 3;
       }
 
       newRating -= subtra;
