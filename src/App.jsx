@@ -209,14 +209,14 @@ const App = () => {
     let newKnown = known;
 
     if (isCorrect) {
-      let x = 0.1;
+      let x = 0.08;
       if (!known.includes(char)) {
         newKnown.push(char);
         x = 1;
       }
       newRating += x;
     } else {
-      let subtra = 0.1;
+      let subtra = 2;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
         subtra = 4;
