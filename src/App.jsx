@@ -216,10 +216,10 @@ const App = () => {
       }
       newRating += x;
     } else {
-      let subtra = 1.5;
+      let subtra = 2;
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
-        subtra = 3;
+        subtra = 4;
       }
 
       newRating -= subtra;
