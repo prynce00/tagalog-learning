@@ -216,7 +216,7 @@ const App = () => {
       }
       newRating += x;
     } else {
-      let subtra = Math.abs(finalRating - known.length) * 0.5;
+      let subtra = Math.abs(finalRating - known.length) * 1.2;
 
       console.log({
         diff: Math.abs(finalRating - known.length),
