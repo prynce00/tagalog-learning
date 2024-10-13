@@ -217,11 +217,8 @@ const App = () => {
       newRating += x;
     } else {
       let subtra = Math.abs(finalRating - known.length) * 1.2;
+      subtra = subtra < 1 ? 1 : subtra;
 
-      console.log({
-        diff: Math.abs(finalRating - known.length),
-        subtra,
-      });
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
       }
