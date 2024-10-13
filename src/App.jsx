@@ -216,10 +216,14 @@ const App = () => {
       }
       newRating += x;
     } else {
-      let subtra = 2;
+      let subtra = Math.abs(finalRating - known.length) * 0.5;
+
+      console.log({
+        diff: Math.abs(finalRating - known.length),
+        subtra,
+      });
       if (known.includes(char)) {
         newKnown = known.filter((item) => item !== char);
-        subtra = 4;
       }
 
       newRating -= subtra;
