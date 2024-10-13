@@ -209,7 +209,7 @@ const App = () => {
     let newKnown = known;
 
     if (isCorrect) {
-      let x = 0.25;
+      let x = 0.05;
       if (!known.includes(char)) {
         newKnown.push(char);
         x = 1;
