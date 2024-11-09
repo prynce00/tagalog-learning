@@ -8,6 +8,10 @@ button {
   border: solid 1px #000000;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;

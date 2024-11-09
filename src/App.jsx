@@ -14,6 +14,8 @@ const App = () => {
   const state = storage?.state || "reset";
   const correctAnswers = storage?.correctAnswers || 0;
   const processedCharacters = storage?.processedCharacters || 0;
+  const zenMode = storage?.zenMode || 0;
+  const zenChars = storage?.zenChars || [];
   const usedCharacters = storage?.usedCharacters || [];
   const rating = storage?.rating || 0;
   const known = storage?.known || [];
@@ -53,24 +55,37 @@ const App = () => {
     },
   ];
 
+  const isZenMode = () => !!parseInt(zenMode);
+
+  const addRemoveZenChars = (obj) => {
+    const key = "character";
+    const index = key
+      ? zenChars.findIndex((item) => item[key] === obj[key])
+      : zenChars.findIndex(
+          (item) => JSON.stringify(item) === JSON.stringify(obj)
+        );
+
+    if (index === -1) {
+      zenChars.push(obj);
+    } else {
+      zenChars.splice(index, 1);
+    }
+
+    setStorage({
+      zenChars,
+    });
+  };
+
+  const zenCharExist = (obj) => {
+    const key = "character";
+    return zenChars.some((item) => item[key] === obj[key]);
+  };
+
   const finalRating = (rating + known.length) / 2;
 
   const characterCount = known.length + 10;
 
   const loadCharacters = () => {
-    // let allData = [];
-    // currentLevels?.forEach(({ label }) => {
-    //   const level = levels.find((e) => label === e.value).level;
-
-    //   const data = HSK.filter((item) => item.hsk === String(level));
-
-    //   allData = [...data, ...allData].sort(() => Math.random() - 0.5);
-    //   allData = allData.filter(
-    //     (item, index, self) =>
-    //       index === self.findIndex((obj) => obj.character === item.character)
-    //   );
-    // });
-
     const orderedLevel = HSK.sort((a, b) => parseInt(a.hsk) - parseInt(b.hsk));
 
     const characterSet = orderedLevel
@@ -79,6 +94,10 @@ const App = () => {
 
     setCharacters(characterSet);
   };
+
+  useEffect(() => {
+    loadCharacters();
+  }, [zenMode]);
 
   useEffect(() => {
     if (isSpacePressed && state === STATES.REVEAL) {
@@ -110,11 +129,35 @@ const App = () => {
   const handleStates = () => {
     if (state === STATES.ONGOING) {
       if (!character) {
-        const randomItem = getRandomItems(characters, usedCharacters);
+        if (!isZenMode()) {
+          const randomItem = getRandomItems(characters, usedCharacters);
 
-        if (randomItem.length === 6) {
-          setCharacter(randomItem[0]);
-          setOptions(randomItem.sort(() => Math.random() - 0.5));
+          if (randomItem.length === 6) {
+            setCharacter(randomItem[0]);
+            setOptions(randomItem.sort(() => Math.random() - 0.5));
+          }
+        } else {
+          const randomZenItem = getRandomItems(zenChars, []);
+          const randomItem = getRandomItems(
+            characters,
+            [...usedCharacters, randomZenItem[0]],
+            6
+          );
+
+          if (randomItem.length === 6) {
+            const zenItem = randomZenItem[0];
+            setCharacter(zenItem);
+
+            const finalRandomItem = randomItem.some(
+              (item) => item.character === zenItem.character
+            )
+              ? randomItem
+              : (randomItem.length >= 6 ? randomItem.shift() : null,
+                randomItem.push(zenItem),
+                randomItem);
+
+            setOptions(finalRandomItem.sort(() => Math.random() - 0.5));
+          }
         }
       }
     }
@@ -290,24 +333,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <div className="level-selector">
-        {/* <Select
-            options={levels.map((e) => {
-              return {
-                value: e.level,
-                label: e.value,
-              };
-            })}
-            isMulti
-            placeholder="Select Level"
-            onChange={(e) => {
-              setStorage({
-                levels: e,
-              });
-            }}
-            value={currentLevels}
-          /> */}
-      </div>
+      <div className="level-selector"></div>
       <div className="info-container">
         <div className="game-info-container">
           <div className="info-item">
@@ -330,17 +356,22 @@ const App = () => {
               {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
             </span>
           </div>
-          <div className="info-item">
+          {isZenMode() && (
+            <div className="info-item">
+              <span className="title">Zen Characters:</span>
+              <span className="value"> {zenChars.length}</span>
+            </div>
+          )}
+          <div className="info-item pointer">
             <span
               className="value"
               onClick={() => {
                 setStorage({
-                  state: STATES.ONGOING,
+                  zenMode: isZenMode() ? 0 : 1,
                 });
-                reset();
               }}
             >
-              --Reset Rating
+              {isZenMode() ? "↺  Zen Mode" : "↻  Normal Mode"}
             </span>
           </div>
         </div>
@@ -361,6 +392,14 @@ const App = () => {
             {character ? (
               <>
                 <div className="character-container">{character.character}</div>
+                <span
+                  className="zen-character pointer"
+                  onClick={() => addRemoveZenChars(character)}
+                >
+                  {zenCharExist(character)
+                    ? "- Remove from zen characters"
+                    : " + Add to zen characters"}
+                </span>
                 <div className="options-container">
                   {options.map((option, ok) => (
                     <div
