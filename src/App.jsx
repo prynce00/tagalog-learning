@@ -1,6 +1,5 @@
 import "./assets/styles/index.scss";
 import HSK from "./data/hsk_characters.json";
-import Select from "react-select";
 import { useLocalStorageContext } from "./providers/localStorageProvider";
 import { useEffect, useState } from "react";
 import { STATES } from "./contants";
@@ -14,79 +13,26 @@ const App = () => {
   const state = storage?.state || "reset";
   const correctAnswers = storage?.correctAnswers || 0;
   const processedCharacters = storage?.processedCharacters || 0;
-  const zenMode = storage?.zenMode || 0;
-  const zenChars = storage?.zenChars || [];
   const usedCharacters = storage?.usedCharacters || [];
+  const mistakes = storage?.mistakes || 0;
+  const nextReviewCharacter = storage?.nextReviewCharacter || 10;
+  const totalAllowedMistakes = 10;
   const rating = storage?.rating || 0;
   const known = storage?.known || [];
   const [character, setCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
+  const [totalCharacters, setTotalCharacters] = useState([]);
   const [options, setOptions] = useState([]);
+  const [isReview, setReview] = useState(false);
   const playSound = usePlaySound(character?.pinyin);
   const { isSpacePressed, characterPressed } = useKeyPress();
-  const levels = [
-    {
-      level: 1,
-      value: "HSK-1",
-    },
-    {
-      level: 2,
-      value: "HSK-2",
-    },
-    {
-      level: 3,
-      value: "HSK-3",
-    },
-    {
-      level: 4,
-      value: "HSK-4",
-    },
-    {
-      level: 5,
-      value: "HSK-5",
-    },
-    {
-      level: 6,
-      value: "HSK-6",
-    },
-    {
-      level: "",
-      value: "Advance",
-    },
-  ];
-
-  const isZenMode = () => !!parseInt(zenMode);
-
-  const addRemoveZenChars = (obj) => {
-    const key = "character";
-    const index = key
-      ? zenChars.findIndex((item) => item[key] === obj[key])
-      : zenChars.findIndex(
-          (item) => JSON.stringify(item) === JSON.stringify(obj)
-        );
-
-    if (index === -1) {
-      zenChars.push(obj);
-    } else {
-      zenChars.splice(index, 1);
-    }
-
-    setStorage({
-      zenChars,
-    });
-  };
-
-  const zenCharExist = (obj) => {
-    const key = "character";
-    return zenChars.some((item) => item[key] === obj[key]);
-  };
-
-  const finalRating = (rating + known.length) / 2;
 
   const characterCount = known.length + 10;
 
   const loadCharacters = () => {
     const orderedLevel = HSK.sort((a, b) => parseInt(a.hsk) - parseInt(b.hsk));
+
+    setTotalCharacters(orderedLevel);
 
     const characterSet = orderedLevel
       .slice(0, characterCount)
@@ -95,9 +41,46 @@ const App = () => {
     setCharacters(characterSet);
   };
 
+  const pickLeastKnownCharacterData = () => {
+    if (!known.length) return false;
+
+    const minCorrectCount = Math.min(...known.map((item) => item.correctCount));
+
+    if (minCorrectCount > 10) return false;
+
+    const leastKnownCharacters = known.filter(
+      (item) => item.correctCount === minCorrectCount
+    );
+
+    const reviewChar =
+      leastKnownCharacters[
+        Math.floor(Math.random() * leastKnownCharacters.length)
+      ];
+
+    return (
+      totalCharacters.find(
+        (entry) => entry.character === reviewChar.character
+      ) || false
+    );
+  };
+
+  const calculateRating = () => {
+    const maxMultiplier = 10000 / totalCharacters.length;
+
+    return known.reduce((total, item) => {
+      const contribution = Math.min(
+        (item.correctCount / 1.5) * maxMultiplier,
+        maxMultiplier
+      );
+      return total + contribution;
+    }, 0);
+  };
+
+  const finalRating = calculateRating();
+
   useEffect(() => {
     loadCharacters();
-  }, [zenMode]);
+  }, []);
 
   useEffect(() => {
     if (isSpacePressed && state === STATES.REVEAL) {
@@ -129,35 +112,41 @@ const App = () => {
   const handleStates = () => {
     if (state === STATES.ONGOING) {
       if (!character) {
-        if (!isZenMode()) {
-          const randomItem = getRandomItems(characters, usedCharacters);
+        const randomItem = getRandomItems(characters, usedCharacters);
 
-          if (randomItem.length === 6) {
-            setCharacter(randomItem[0]);
-            setOptions(randomItem.sort(() => Math.random() - 0.5));
+        if (isReview) {
+          const reviewChar = pickLeastKnownCharacterData();
+
+          if (reviewChar) {
+            randomItem[0] = reviewChar;
+
+            const pinyinSet = new Set(randomItem.map((item) => item.pinyin));
+
+            if (pinyinSet.size < randomItem.length) {
+              const filteredCharacters = characters.filter(
+                (char) =>
+                  !usedCharacters.includes(char.character) &&
+                  !pinyinSet.has(char.pinyin)
+              );
+
+              for (let i = 0; i < randomItem.length; i++) {
+                if (
+                  randomItem
+                    .slice(i + 1)
+                    .some((item) => item.pinyin === randomItem[i].pinyin)
+                ) {
+                  randomItem[i] = filteredCharacters.pop() || randomItem[i];
+                }
+              }
+            }
           }
-        } else {
-          const randomZenItem = getRandomItems(zenChars, []);
-          const randomItem = getRandomItems(
-            characters,
-            [...usedCharacters, randomZenItem[0]],
-            6
-          );
+        }
 
-          if (randomItem.length === 6) {
-            const zenItem = randomZenItem[0];
-            setCharacter(zenItem);
+        setReview(false);
 
-            const finalRandomItem = randomItem.some(
-              (item) => item.character === zenItem.character
-            )
-              ? randomItem
-              : (randomItem.length >= 6 ? randomItem.shift() : null,
-                randomItem.push(zenItem),
-                randomItem);
-
-            setOptions(finalRandomItem.sort(() => Math.random() - 0.5));
-          }
+        if (randomItem.length === 6) {
+          setCharacter(randomItem[0]);
+          setOptions(randomItem.sort(() => Math.random() - 0.5));
         }
       }
     }
@@ -250,23 +239,46 @@ const App = () => {
 
     let newRating = rating;
     let newKnown = known;
+    let newMistakes = mistakes;
+    let newNextRevChar = nextReviewCharacter;
 
     if (isCorrect) {
       let x = 0.05;
-      if (!known.includes(char)) {
-        newKnown.push(char);
+      const knownItem = known.find((item) => item.character === char);
+
+      if (!knownItem) {
+        newKnown.push({ character: char, correctCount: 1 });
         x = 1;
+      } else {
+        knownItem.correctCount += 1; // Increment correctCount for the known character
       }
+
       newRating += x;
     } else {
       let subtra = Math.abs(finalRating - known.length) * 1.2;
       subtra = subtra < 1 ? 1 : subtra;
 
-      if (known.includes(char)) {
-        newKnown = known.filter((item) => item !== char);
+      const knownItem = known.find((item) => item.character === char);
+      if (knownItem) {
+        knownItem.correctCount -= 1; // Decrease correctCount for the character
+        if (knownItem.correctCount <= 0) {
+          newKnown = known.filter((item) => item.character !== char); // Remove if correctCount is 0
+        } else {
+          newKnown = [...known]; // Keep the updated known array
+        }
+      } else {
+        newKnown = [...known]; // If char isn't in known, no changes
       }
 
+      newMistakes = mistakes + 1;
+
       newRating -= subtra;
+    }
+
+    newNextRevChar = nextReviewCharacter - 1;
+
+    if (newNextRevChar <= 0) {
+      setReview(true);
     }
 
     let newStoreItem = {
@@ -277,6 +289,8 @@ const App = () => {
       processedCharacters: processedCharacters + 1,
       rating: newRating > 0 ? newRating : 0,
       known: newKnown,
+      mistakes: newMistakes,
+      nextReviewCharacter: newNextRevChar,
     };
 
     setStorage(newStoreItem);
@@ -293,6 +307,8 @@ const App = () => {
       rating: 0,
       known: [],
       unknown: [],
+      mistakes: 0,
+      nextReviewCharacter: 0,
     });
   };
 
@@ -311,10 +327,14 @@ const App = () => {
     handleStates();
 
     if (getUserCharactersLen() <= 0) {
+      loadCharacters();
+    }
+
+    if (mistakes >= totalAllowedMistakes) {
       setStorage({
         usedCharacters: [],
+        mistakes: 0,
       });
-      loadCharacters();
     }
   }, [state, characters]);
 
@@ -338,17 +358,27 @@ const App = () => {
         <div className="game-info-container">
           <div className="info-item">
             <span className="title" title="Queued Characters">
-              QC:
+              Characters:
             </span>
             <span className="value">
-              {getUserCharactersLen()}/{characters.length}
+              {known.length}/{totalCharacters.length}
             </span>
           </div>
           <div className="info-item">
             <span className="title" title="Estimated Known Characters">
-              EKC:
+              Mistakes:
             </span>
-            <span className="value">{known.length}</span>
+            <span className="value">
+              {mistakes}/{totalAllowedMistakes}
+            </span>
+          </div>
+          <div className="info-item">
+            <span className="title" title="Estimated Known Characters">
+              Next Review Character:
+            </span>
+            <span className="value">
+              {nextReviewCharacter}({pickLeastKnownCharacterData()?.character})
+            </span>
           </div>
           <div className="info-item">
             <span className="title">Accuracy:</span>
@@ -356,23 +386,8 @@ const App = () => {
               {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
             </span>
           </div>
-          {isZenMode() && (
-            <div className="info-item">
-              <span className="title">Zen Characters:</span>
-              <span className="value"> {zenChars.length}</span>
-            </div>
-          )}
-          <div className="info-item pointer">
-            <span
-              className="value"
-              onClick={() => {
-                setStorage({
-                  zenMode: isZenMode() ? 0 : 1,
-                });
-              }}
-            >
-              {isZenMode() ? "↺  Zen Mode" : "↻  Normal Mode"}
-            </span>
+          <div className="info-item" onClick={reset}>
+            <span className="value">↻ Reset Progress</span>
           </div>
         </div>
         <div className="level-info-container">
@@ -392,14 +407,6 @@ const App = () => {
             {character ? (
               <>
                 <div className="character-container">{character.character}</div>
-                <span
-                  className="zen-character pointer"
-                  onClick={() => addRemoveZenChars(character)}
-                >
-                  {zenCharExist(character)
-                    ? "- Remove from zen characters"
-                    : " + Add to zen characters"}
-                </span>
                 <div className="options-container">
                   {options.map((option, ok) => (
                     <div
@@ -459,14 +466,6 @@ const App = () => {
                   });
                 }}
               />
-              {/* {mode === "normal" && (
-                <ContinueBtn
-                  label="Reset"
-                  action={() => {
-                    reset();
-                  }}
-                />
-              )} */}
             </div>
           </div>
         )}
