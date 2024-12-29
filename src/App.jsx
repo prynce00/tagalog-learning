@@ -17,7 +17,6 @@ const App = () => {
   const mistakes = storage?.mistakes || 0;
   const nextReviewCharacter = storage?.nextReviewCharacter || 10;
   const totalAllowedMistakes = 10;
-  const rating = storage?.rating || 0;
   const known = storage?.known || [];
   const [character, setCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -237,42 +236,35 @@ const App = () => {
 
     const newCorrectAnswers = isCorrect ? correctAnswers + 1 : correctAnswers;
 
-    let newRating = rating;
+    let newUsedChar = usedCharacters;
     let newKnown = known;
     let newMistakes = mistakes;
     let newNextRevChar = nextReviewCharacter;
 
     if (isCorrect) {
-      let x = 0.05;
       const knownItem = known.find((item) => item.character === char);
 
       if (!knownItem) {
         newKnown.push({ character: char, correctCount: 1 });
-        x = 1;
       } else {
         knownItem.correctCount += 1; // Increment correctCount for the known character
       }
 
-      newRating += x;
+      newUsedChar = [...usedCharacters, character];
     } else {
-      let subtra = Math.abs(finalRating - known.length) * 1.2;
-      subtra = subtra < 1 ? 1 : subtra;
-
       const knownItem = known.find((item) => item.character === char);
       if (knownItem) {
-        knownItem.correctCount -= 1; // Decrease correctCount for the character
+        knownItem.correctCount -= 1;
         if (knownItem.correctCount <= 0) {
-          newKnown = known.filter((item) => item.character !== char); // Remove if correctCount is 0
+          newKnown = known.filter((item) => item.character !== char);
         } else {
-          newKnown = [...known]; // Keep the updated known array
+          newKnown = [...known];
         }
       } else {
-        newKnown = [...known]; // If char isn't in known, no changes
+        newKnown = [...known];
       }
 
       newMistakes = mistakes + 1;
-
-      newRating -= subtra;
     }
 
     newNextRevChar = nextReviewCharacter - 1;
@@ -284,10 +276,9 @@ const App = () => {
     let newStoreItem = {
       state: STATES.REVEAL,
       selectedCharacter: selected.character,
-      usedCharacters: [...usedCharacters, character],
+      usedCharacters: newUsedChar,
       correctAnswers: newCorrectAnswers,
       processedCharacters: processedCharacters + 1,
-      rating: newRating > 0 ? newRating : 0,
       known: newKnown,
       mistakes: newMistakes,
       nextReviewCharacter: newNextRevChar,
