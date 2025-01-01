@@ -1,12 +1,10 @@
 export const getRandomItems = (items, usedCharacters, maxItems = 6) => {
   const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-  const usedCharacterSet = new Set(
-    usedCharacters.map((item) => item.character)
-  );
+  const usedCharacterSet = new Set(usedCharacters.map((item) => item.word));
 
   const availableItems = items.filter(
-    (item) => !usedCharacterSet.has(item.character)
+    (item) => !usedCharacterSet.has(item.word)
   );
 
   const getUniqueItems = (arr, count, firstItemPinyin) => {
@@ -18,8 +16,8 @@ export const getRandomItems = (items, usedCharacters, maxItems = 6) => {
       const randomItem = getRandomItem(arr);
       if (
         randomItem &&
-        randomItem.pinyin !== firstItemPinyin &&
-        !result.find((item) => item.pinyin === randomItem.pinyin)
+        randomItem.translation !== firstItemPinyin &&
+        !result.find((item) => item.translation === randomItem.translation)
       ) {
         result.push(randomItem);
       }
@@ -37,7 +35,7 @@ export const getRandomItems = (items, usedCharacters, maxItems = 6) => {
   const uniqueItems = getUniqueItems(
     remainingPool,
     maxItems - 1,
-    firstItem.pinyin
+    firstItem.translation
   );
 
   const result = [firstItem, ...uniqueItems];
@@ -45,9 +43,7 @@ export const getRandomItems = (items, usedCharacters, maxItems = 6) => {
   return result.slice(0, maxItems);
 };
 
-export const filterUsedCharacters = (mainArray, usedCharacters) => {
-  const usedCharacterSet = new Set(
-    usedCharacters.map((item) => item.character)
-  );
-  return mainArray.filter((item) => !usedCharacterSet.has(item.character));
+export const filterUsedWords = (mainArray, usedCharacters) => {
+  const usedCharacterSet = new Set(usedCharacters.map((item) => item.word));
+  return mainArray.filter((item) => !usedCharacterSet.has(item.word));
 };

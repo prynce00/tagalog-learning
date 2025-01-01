@@ -6,8 +6,7 @@ export const usePlaySound = (filename) => {
   const audioRef = useRef(new Audio());
 
   const playSound = () => {
-    const voice = "Zhiyu";
-    audioRef.current.src = require(`../assets/sounds/${voice}/${filename}.mp3`);
+    audioRef.current.src = require(`../assets/sounds/${filename}.mp3`);
 
     audioRef.current
       .play()
@@ -23,13 +22,13 @@ export const usePlaySound = (filename) => {
 };
 
 const PlaySound = ({ filename }) => {
-  const play = usePlaySound(filename); // Get play function from hook
+  const play = usePlaySound(filename);
 
   return (
     <div>
       <FontAwesomeIcon
         icon={faVolumeUp}
-        onClick={play} // Trigger play on click
+        onClick={play}
         style={{ cursor: "pointer", fontSize: "24px" }}
       />
     </div>

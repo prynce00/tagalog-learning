@@ -1,35 +1,34 @@
 import "./assets/styles/index.scss";
-import HSK from "./data/hsk_characters.json";
+import WORDS from "./data/filipino_words.json";
 import { useLocalStorageContext } from "./providers/localStorageProvider";
 import { useEffect, useState } from "react";
 import { STATES } from "./contants";
-import { filterUsedCharacters, getRandomItems } from "./helpers";
+import { filterUsedWords, getRandomItems } from "./helpers";
 import PlaySound, { usePlaySound } from "./components/playSound";
-import useKeyPress from "./hooks/useKeyPress";
 
 const App = () => {
   const { storage, setStorage } = useLocalStorageContext();
-  const currentLevels = storage?.levels;
   const state = storage?.state || "reset";
   const correctAnswers = storage?.correctAnswers || 0;
-  const processedCharacters = storage?.processedCharacters || 0;
-  const usedCharacters = storage?.usedCharacters || [];
+  const processedWords = storage?.processedWords || 0;
+  const usedWords = storage?.usedWords || [];
   const mistakes = storage?.mistakes || 0;
-  const nextReviewCharacter = storage?.nextReviewCharacter || 10;
+  const nextReviewWord = storage?.nextReviewWord || 10;
   const totalAllowedMistakes = 10;
   const known = storage?.known || [];
-  const [character, setCharacter] = useState(null);
+  const [word, setWord] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [totalCharacters, setTotalCharacters] = useState([]);
   const [options, setOptions] = useState([]);
   const [isReview, setReview] = useState(false);
-  const playSound = usePlaySound(character?.pinyin);
-  const { isSpacePressed, characterPressed } = useKeyPress();
+  const playSound = usePlaySound(word?.word);
 
   const characterCount = known.length + 10;
 
-  const loadCharacters = () => {
-    const orderedLevel = HSK.sort((a, b) => parseInt(a.hsk) - parseInt(b.hsk));
+  const loadWords = () => {
+    const orderedLevel = WORDS.sort(
+      (a, b) => parseInt(a.WORDS) - parseInt(b.WORDS)
+    );
 
     setTotalCharacters(orderedLevel);
 
@@ -57,14 +56,12 @@ const App = () => {
       ];
 
     return (
-      totalCharacters.find(
-        (entry) => entry.character === reviewChar.character
-      ) || false
+      totalCharacters.find((entry) => entry.word === reviewChar.word) || false
     );
   };
 
   const calculateRating = () => {
-    const maxMultiplier = 10000 / totalCharacters.length;
+    const maxMultiplier = WORDS?.length / totalCharacters.length;
 
     return known.reduce((total, item) => {
       const contribution = Math.min(
@@ -78,40 +75,19 @@ const App = () => {
   const finalRating = calculateRating();
 
   useEffect(() => {
-    loadCharacters();
+    loadWords();
   }, []);
 
   useEffect(() => {
-    if (isSpacePressed && state === STATES.REVEAL) {
-      setCharacter(null);
-      setStorage({
-        selectedCharacter: null,
-        state: STATES.ONGOING,
-      });
+    if (word) {
+      playSound(word.word);
     }
-  }, [isSpacePressed]);
-
-  useEffect(() => {
-    const shortcuts = {
-      E: 0,
-      I: 1,
-      D: 2,
-      J: 3,
-      C: 4,
-      N: 5,
-    };
-
-    const optionkey = shortcuts[characterPressed];
-
-    if (state === STATES.ONGOING && optionkey !== undefined) {
-      document.querySelectorAll(".option-btn")[optionkey].click();
-    }
-  }, [characterPressed]);
+  }, [word]);
 
   const handleStates = () => {
     if (state === STATES.ONGOING) {
-      if (!character) {
-        const randomItem = getRandomItems(characters, usedCharacters);
+      if (!word) {
+        const randomItem = getRandomItems(characters, usedWords);
 
         if (isReview) {
           const reviewChar = pickLeastKnownCharacterData();
@@ -119,20 +95,24 @@ const App = () => {
           if (reviewChar) {
             randomItem[0] = reviewChar;
 
-            const pinyinSet = new Set(randomItem.map((item) => item.pinyin));
+            const translationSet = new Set(
+              randomItem.map((item) => item.translation)
+            );
 
-            if (pinyinSet.size < randomItem.length) {
+            if (translationSet.size < randomItem.length) {
               const filteredCharacters = characters.filter(
                 (char) =>
-                  !usedCharacters.includes(char.character) &&
-                  !pinyinSet.has(char.pinyin)
+                  !usedWords.includes(char.word) &&
+                  !translationSet.has(char.translation)
               );
 
               for (let i = 0; i < randomItem.length; i++) {
                 if (
                   randomItem
                     .slice(i + 1)
-                    .some((item) => item.pinyin === randomItem[i].pinyin)
+                    .some(
+                      (item) => item.translation === randomItem[i].translation
+                    )
                 ) {
                   randomItem[i] = filteredCharacters.pop() || randomItem[i];
                 }
@@ -144,13 +124,13 @@ const App = () => {
         setReview(false);
 
         if (randomItem.length === 6) {
-          setCharacter(randomItem[0]);
+          setWord(randomItem[0]);
           setOptions(randomItem.sort(() => Math.random() - 0.5));
         }
       }
     }
     if (state === STATES.REVEAL) {
-      if (!character) {
+      if (!word) {
         setStorage({
           selectedCharacter: null,
           state: STATES.ONGOING,
@@ -159,8 +139,7 @@ const App = () => {
     }
   };
 
-  const getUserCharactersLen = () =>
-    filterUsedCharacters(characters, usedCharacters).length;
+  const getUserWordsLen = () => filterUsedWords(characters, usedWords).length;
 
   const getRankAndStars = (rating) => {
     if (typeof rating !== "number" || rating < 0) {
@@ -227,36 +206,33 @@ const App = () => {
       return false;
     }
 
-    const char = character.character;
+    const char = word.word;
 
-    // Play sound
-    playSound();
-
-    const isCorrect = selected.character === char;
+    const isCorrect = selected.word === char;
 
     const newCorrectAnswers = isCorrect ? correctAnswers + 1 : correctAnswers;
 
-    let newUsedChar = usedCharacters;
+    let newUsedChar = usedWords;
     let newKnown = known;
     let newMistakes = mistakes;
-    let newNextRevChar = nextReviewCharacter;
+    let newNextRevWord = nextReviewWord;
 
     if (isCorrect) {
-      const knownItem = known.find((item) => item.character === char);
+      const knownItem = known.find((item) => item.word === char);
 
       if (!knownItem) {
-        newKnown.push({ character: char, correctCount: 1 });
+        newKnown.push({ word: char, correctCount: 1 });
       } else {
-        knownItem.correctCount += 1; // Increment correctCount for the known character
+        knownItem.correctCount += 1; // Increment correctCount for the known word
       }
 
-      newUsedChar = [...usedCharacters, character];
+      newUsedChar = [...usedWords, word];
     } else {
-      const knownItem = known.find((item) => item.character === char);
+      const knownItem = known.find((item) => item.word === char);
       if (knownItem) {
         knownItem.correctCount -= 1;
         if (knownItem.correctCount <= 0) {
-          newKnown = known.filter((item) => item.character !== char);
+          newKnown = known.filter((item) => item.word !== char);
         } else {
           newKnown = [...known];
         }
@@ -267,63 +243,59 @@ const App = () => {
       newMistakes = mistakes + 1;
     }
 
-    newNextRevChar = nextReviewCharacter - 1;
+    newNextRevWord = nextReviewWord - 1;
 
-    if (newNextRevChar <= 0) {
+    if (newNextRevWord <= 0) {
       setReview(true);
     }
 
     let newStoreItem = {
       state: STATES.REVEAL,
-      selectedCharacter: selected.character,
-      usedCharacters: newUsedChar,
+      selectedCharacter: selected.word,
+      usedWords: newUsedChar,
       correctAnswers: newCorrectAnswers,
-      processedCharacters: processedCharacters + 1,
+      processedWords: processedWords + 1,
       known: newKnown,
       mistakes: newMistakes,
-      nextReviewCharacter: newNextRevChar,
+      nextReviewWord: newNextRevWord,
     };
 
     setStorage(newStoreItem);
   };
 
   const reset = () => {
-    setCharacter(null);
+    setWord(null);
     setStorage({
       selectedCharacter: null,
-      usedCharacters: [],
+      usedWords: [],
       correctAnswers: 0,
-      processedCharacters: 0,
+      processedWords: 0,
       state: STATES.RESET,
       rating: 0,
       known: [],
       unknown: [],
       mistakes: 0,
-      nextReviewCharacter: 0,
+      nextReviewWord: 0,
     });
   };
 
   const getScorePercentage = () => {
-    const total = processedCharacters;
+    const total = processedWords;
     const point = (correctAnswers / total) * 100;
 
     return isNaN(point) ? "0.00" : parseFloat(point).toFixed(2);
   };
 
   useEffect(() => {
-    loadCharacters();
-  }, [currentLevels]);
-
-  useEffect(() => {
     handleStates();
 
-    if (getUserCharactersLen() <= 0) {
-      loadCharacters();
+    if (getUserWordsLen() <= 0) {
+      loadWords();
     }
 
     if (mistakes >= totalAllowedMistakes) {
       setStorage({
-        usedCharacters: [],
+        usedWords: [],
         mistakes: 0,
       });
     }
@@ -365,16 +337,16 @@ const App = () => {
           </div>
           <div className="info-item">
             <span className="title" title="Estimated Known Characters">
-              Next Review Character:
+              Next Review word:
             </span>
             <span className="value">
-              {nextReviewCharacter}({pickLeastKnownCharacterData()?.character})
+              {nextReviewWord}({pickLeastKnownCharacterData()?.word})
             </span>
           </div>
           <div className="info-item">
             <span className="title">Accuracy:</span>
             <span className="value">
-              {correctAnswers}/{processedCharacters} ({getScorePercentage()}%)
+              {correctAnswers}/{processedWords} ({getScorePercentage()}%)
             </span>
           </div>
           <div className="info-item" onClick={reset}>
@@ -395,63 +367,48 @@ const App = () => {
         {state === STATES.RESET && <ContinueBtn label="Start" />}
         {(state === STATES.ONGOING || state === STATES.REVEAL) && (
           <>
-            {character ? (
+            {word && (
               <>
-                <div className="character-container">{character.character}</div>
+                <div className="word-container">{word.word}</div>
+                <PlaySound filename={word.word} />
                 <div className="options-container">
                   {options.map((option, ok) => (
                     <div
-                      key={`option-btn-${option.pinyin}-${ok}`}
+                      key={`option-btn-${option.translation}-${ok}`}
                       className={`btn-container ${
                         state === STATES.REVEAL &&
-                        (character.character === option.character
-                          ? "correct"
-                          : "")
+                        (word.word === option.word ? "correct" : "")
                       }
                    ${
                      state === STATES.REVEAL &&
-                     storage.selectedCharacter === option.character
-                       ? character.character === option.character
+                     storage.selectedCharacter === option.word
+                       ? word.word === option.word
                          ? "correct"
                          : "wrong"
                        : ""
                    }`}
                     >
-                      <PlaySound filename={option.pinyin} />
                       <button
                         className="option-btn"
                         onClick={() => revealAnswer(option)}
                       >
-                        {option.pinyin}
+                        {option.translation}
                       </button>
                     </div>
                   ))}
                 </div>
-              </>
-            ) : (
-              <>
-                {!currentLevels ? (
-                  <p>Select a level to continue</p>
-                ) : (
-                  <ContinueBtn
-                    label="Reset"
-                    action={() => {
-                      reset();
-                    }}
-                  />
-                )}
               </>
             )}
           </>
         )}
         {state === STATES.REVEAL && (
           <div className="answer-container">
-            <span className="info">{character?.definition}</span>
+            <span className="info">{word?.definition}</span>
             <div className="action-box">
               <ContinueBtn
                 label="Next"
                 action={() => {
-                  setCharacter(null);
+                  setWord(null);
                   setStorage({
                     selectedCharacter: null,
                   });
