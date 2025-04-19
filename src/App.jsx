@@ -14,29 +14,19 @@ const App = () => {
   const usedWords = storage?.usedWords || [];
   const mistakes = storage?.mistakes || 0;
   const nextReviewWord = storage?.nextReviewWord || 10;
-  const totalAllowedMistakes = 10;
+  const totalAllowedMistakes = 1;
   const known = storage?.known || [];
   const [word, setWord] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [totalCharacters, setTotalCharacters] = useState([]);
   const [options, setOptions] = useState([]);
-  const [isReview, setReview] = useState(false);
+
   const playSound = usePlaySound(word?.word);
 
-  const characterCount = known.length + 10;
-
   const loadWords = () => {
-    const orderedLevel = WORDS.sort(
-      (a, b) => parseInt(a.WORDS) - parseInt(b.WORDS)
-    );
+    setTotalCharacters(WORDS);
 
-    setTotalCharacters(orderedLevel);
-
-    const characterSet = orderedLevel
-      .slice(0, characterCount)
-      .sort(() => 0.5 - Math.random());
-
-    setCharacters(characterSet);
+    setCharacters(WORDS);
   };
 
   const pickLeastKnownCharacterData = () => {
@@ -88,40 +78,6 @@ const App = () => {
     if (state === STATES.ONGOING) {
       if (!word) {
         const randomItem = getRandomItems(characters, usedWords);
-
-        if (isReview) {
-          const reviewChar = pickLeastKnownCharacterData();
-
-          if (reviewChar) {
-            randomItem[0] = reviewChar;
-
-            const translationSet = new Set(
-              randomItem.map((item) => item.translation)
-            );
-
-            if (translationSet.size < randomItem.length) {
-              const filteredCharacters = characters.filter(
-                (char) =>
-                  !usedWords.includes(char.word) &&
-                  !translationSet.has(char.translation)
-              );
-
-              for (let i = 0; i < randomItem.length; i++) {
-                if (
-                  randomItem
-                    .slice(i + 1)
-                    .some(
-                      (item) => item.translation === randomItem[i].translation
-                    )
-                ) {
-                  randomItem[i] = filteredCharacters.pop() || randomItem[i];
-                }
-              }
-            }
-          }
-        }
-
-        setReview(false);
 
         if (randomItem.length === 6) {
           setWord(randomItem[0]);
@@ -240,13 +196,23 @@ const App = () => {
         newKnown = [...known];
       }
 
+      // Penalty remove 10 random words you have learnt
+      const removed = [];
+      const removedUsedChar = [...newUsedChar]; // so the original array isn't mutated
+
+      const countToRemove = Math.min(10, removedUsedChar.length);
+
+      for (let i = 0; i < countToRemove; i++) {
+        const randomIndex = Math.floor(Math.random() * removedUsedChar.length);
+        const [removedItem] = removedUsedChar.splice(randomIndex, 1);
+        removed.push(removedItem.word);
+      }
+
+      newKnown = newKnown.filter((e) => !removed.includes(e.word));
+
+      newUsedChar = removedUsedChar;
+
       newMistakes = mistakes + 1;
-    }
-
-    newNextRevWord = nextReviewWord - 1;
-
-    if (newNextRevWord <= 0) {
-      setReview(true);
     }
 
     let newStoreItem = {
@@ -296,6 +262,7 @@ const App = () => {
     if (mistakes >= totalAllowedMistakes) {
       setStorage({
         usedWords: [],
+        known: [],
         mistakes: 0,
       });
     }
@@ -309,6 +276,7 @@ const App = () => {
         });
         action?.();
       }}
+      id="next-btn"
     >
       {label}
     </button>
@@ -321,7 +289,7 @@ const App = () => {
         <div className="game-info-container">
           <div className="info-item">
             <span className="title" title="Queued Characters">
-              Characters:
+              Words:
             </span>
             <span className="value">
               {known.length}/{totalCharacters.length}

@@ -43,7 +43,22 @@ export const getRandomItems = (items, usedCharacters, maxItems = 6) => {
   return result.slice(0, maxItems);
 };
 
+export const removeDuplicates = (data) =>
+  Object.values(
+    data.reduce(
+      (acc, cur) => (acc[cur.word] ? acc : { ...acc, [cur.word]: cur }),
+      {}
+    )
+  );
+
 export const filterUsedWords = (mainArray, usedCharacters) => {
-  const usedCharacterSet = new Set(usedCharacters.map((item) => item.word));
-  return mainArray.filter((item) => !usedCharacterSet.has(item.word));
+  const filteredUsedCharacters = removeDuplicates(usedCharacters).map(
+    (e) => e.word
+  );
+
+  const x = mainArray.filter((item) => {
+    return !filteredUsedCharacters.find((e) => e === item.word);
+  });
+
+  return x;
 };

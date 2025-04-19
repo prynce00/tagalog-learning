@@ -84,19 +84,11 @@
     "word": "wika"
   },
   {
-    "translation": "computer",
-    "word": "kompyuter"
-  },
-  {
     "translation": "phone",
     "word": "telepono"
   },
   {
-    "translation": "sun",
-    "word": "araw"
-  },
-  {
-    "translation": "moon",
+    "translation": "moon/month",
     "word": "buwan"
   },
   {
@@ -108,7 +100,7 @@
     "word": "langit"
   },
   {
-    "translation": "earth",
+    "translation": "land",
     "word": "lupa"
   },
   {
@@ -192,10 +184,6 @@
     "word": "babae"
   },
   {
-    "translation": "girl",
-    "word": "babae"
-  },
-  {
     "translation": "boy",
     "word": "batang lalaki"
   },
@@ -209,7 +197,7 @@
   },
   {
     "translation": "uncle",
-    "word": "tiyuhin"
+    "word": "tito"
   },
   {
     "translation": "aunt",
@@ -230,10 +218,6 @@
   {
     "translation": "relationship",
     "word": "relasyon"
-  },
-  {
-    "translation": "love",
-    "word": "pag-ibig"
   },
   {
     "translation": "peace",
@@ -284,16 +268,12 @@
     "word": "presyo"
   },
   {
-    "translation": "cost",
+    "translation": "expenses",
     "word": "gastos"
   },
   {
-    "translation": "value",
+    "translation": "value/worth/price",
     "word": "halaga"
-  },
-  {
-    "translation": "currency",
-    "word": "pera"
   },
   {
     "translation": "budget",
@@ -305,10 +285,6 @@
   },
   {
     "translation": "work",
-    "word": "trabaho"
-  },
-  {
-    "translation": "job",
     "word": "trabaho"
   },
   {
@@ -348,12 +324,8 @@
     "word": "petsa"
   },
   {
-    "translation": "week",
+    "translation": "week/sunday",
     "word": "linggo"
-  },
-  {
-    "translation": "month",
-    "word": "buwan"
   },
   {
     "translation": "year",
@@ -372,11 +344,7 @@
     "word": "gabi"
   },
   {
-    "translation": "night",
-    "word": "gabi"
-  },
-  {
-    "translation": "today",
+    "translation": "now",
     "word": "ngayon"
   },
   {
@@ -386,10 +354,6 @@
   {
     "translation": "tomorrow",
     "word": "bukas"
-  },
-  {
-    "translation": "now",
-    "word": "ngayon"
   },
   {
     "translation": "later",
@@ -414,14 +378,6 @@
   {
     "translation": "rarely",
     "word": "bihira"
-  },
-  {
-    "translation": "seldom",
-    "word": "bihira"
-  },
-  {
-    "translation": "always",
-    "word": "palagi"
   },
   {
     "translation": "usually",
@@ -456,7 +412,7 @@
     "word": "malungkot"
   },
   {
-    "translation": "angry",
+    "translation": "anger",
     "word": "galit"
   },
   {
@@ -537,11 +493,7 @@
   },
   {
     "translation": "young",
-    "word": "bata pa"
-  },
-  {
-    "translation": "old",
-    "word": "luma"
+    "word": "bata"
   },
   {
     "translation": "rich",
@@ -580,27 +532,11 @@
     "word": "madali"
   },
   {
-    "translation": "hard",
-    "word": "mahirap"
-  },
-  {
     "translation": "simple",
-    "word": "simple lang"
+    "word": "simple"
   },
   {
     "translation": "complicated",
-    "word": "kumplikado"
-  },
-  {
-    "translation": "difficult",
-    "word": "mahirap"
-  },
-  {
-    "translation": "simple",
-    "word": "simple lang"
-  },
-  {
-    "translation": "complex",
     "word": "kumplikado"
   },
   {
@@ -692,7 +628,7 @@
     "word": "plastik"
   },
   {
-    "translation": "glass",
+    "translation": "glass/mirror",
     "word": "salamin"
   },
   {
@@ -708,11 +644,7 @@
     "word": "tela"
   },
   {
-    "translation": "cloth",
-    "word": "tela"
-  },
-  {
-    "translation": "leather",
+    "translation": "leather/Skin",
     "word": "balat"
   },
   {
@@ -744,16 +676,8 @@
     "word": "tao"
   },
   {
-    "translation": "animal",
-    "word": "hayop"
-  },
-  {
     "translation": "plant",
     "word": "halaman"
-  },
-  {
-    "translation": "natural",
-    "word": "natural"
   },
   {
     "translation": "unnatural",
@@ -785,7 +709,7 @@
   },
   {
     "translation": "biology",
-    "word": "biology"
+    "word": "bayolohiya"
   },
   {
     "translation": "physics",
@@ -829,7 +753,7 @@
   },
   {
     "translation": "photography",
-    "word": "pagkuha ng litrato"
+    "word": "potograpiya"
   },
   {
     "translation": "design",
@@ -856,7 +780,7 @@
     "word": "alindog"
   },
   {
-    "translation": "grace",
+    "translation": "grace/blessing",
     "word": "biyaya"
   },
   {
@@ -864,24 +788,160 @@
     "word": "kabaitan"
   },
   {
-    "translation": "politeness",
-    "word": "pagiging magalang"
+    "translation": "polite",
+    "word": "magalang"
   },
   {
     "translation": "generosity",
-    "word": "pagkabukas-palad"
+    "word": "kagandahang-loob"
   },
   {
     "translation": "honesty",
     "word": "katapatan"
   },
   {
-    "translation": "loyalty",
-    "word": "katapatan"
-  },
-  {
     "translation": "bravery",
     "word": "katapangan"
+  },
+  {
+    "translation": "apple",
+    "word": "mansanas"
+  },
+  {
+    "translation": "pig",
+    "word": "baboy"
+  },
+  {
+    "translation": "frog",
+    "word": "palaka"
+  },
+  {
+    "translation": "snake",
+    "word": "ahas"
+  },
+  {
+    "translation": "duck",
+    "word": "pato"
+  },
+  {
+    "translation": "rat",
+    "word": "daga"
+  },
+  {
+    "translation": "bat",
+    "word": "paniki"
+  },
+  {
+    "translation": "monkey",
+    "word": "unggoy"
+  },
+  {
+    "translation": "carabao",
+    "word": "kalabaw"
+  },
+  {
+    "translation": "bee",
+    "word": "bubuyog"
+  },
+  {
+    "translation": "ant",
+    "word": "langgam"
+  },
+  {
+    "translation": "butterfly",
+    "word": "paruparo"
+  },
+  {
+    "translation": "spider",
+    "word": "gagamba"
+  },
+  {
+    "translation": "lizard",
+    "word": "butiki"
+  },
+  {
+    "translation": "crocodile",
+    "word": "buwaya"
+  },
+  {
+    "translation": "deer",
+    "word": "usa"
+  },
+  {
+    "translation": "turtle",
+    "word": "pagong"
+  },
+  {
+    "translation": "shrimp",
+    "word": "hipon"
+  },
+  {
+    "translation": "crab",
+    "word": "alimango"
+  },
+  {
+    "translation": "octopus",
+    "word": "pugita"
+  },
+  {
+    "translation": "starfish",
+    "word": "bituing-dagat"
+  },
+  {
+    "translation": "jellyfish",
+    "word": "dikya"
+  },
+  {
+    "translation": "whale",
+    "word": "balyena"
+  },
+  {
+    "translation": "dolphin",
+    "word": "lumba-lumba"
+  },
+  {
+    "translation": "shark",
+    "word": "pating"
+  },
+  {
+    "translation": "eagle",
+    "word": "agila"
+  },
+  {
+    "translation": "owl",
+    "word": "kuwago"
+  },
+  {
+    "translation": "crow",
+    "word": "uwak"
+  },
+  {
+    "translation": "parrot",
+    "word": "loro"
+  },
+  {
+    "translation": "moth",
+    "word": "gamu-gamo"
+  },
+  {
+    "translation": "termite",
+    "word": "anay"
+  },
+  {
+    "translation": "earthworm",
+    "word": "bulati"
+  },
+  {
+    "translation": "snail",
+    "word": "suso"
+  },
+  {
+    "translation": "banana",
+    "word": "saging"
+  },
+  {
+    "translation": "tortoise",
+    "word": "pawikan"
   },
   {
     "translation": "courage",
@@ -908,20 +968,12 @@
     "word": "pag-aaral"
   },
   {
-    "translation": "school",
-    "word": "paaralan"
-  },
-  {
     "translation": "university",
     "word": "unibersidad"
   },
   {
     "translation": "college",
     "word": "kolehiyo"
-  },
-  {
-    "translation": "teacher",
-    "word": "guro"
   },
   {
     "translation": "student",
@@ -940,8 +992,104 @@
     "word": "pagsusulit"
   },
   {
-    "translation": "study",
-    "word": "pag-aaral"
+    "translation": "chair",
+    "word": "silya"
+  },
+  {
+    "translation": "table",
+    "word": "mesa"
+  },
+  {
+    "translation": "window",
+    "word": "bintana"
+  },
+  {
+    "translation": "rain",
+    "word": "ulan"
+  },
+  {
+    "translation": "cloud",
+    "word": "ulap"
+  },
+  {
+    "translation": "fire",
+    "word": "apoy"
+  },
+  {
+    "translation": "wind",
+    "word": "hangin"
+  },
+  {
+    "translation": "sand",
+    "word": "buhangin"
+  },
+  {
+    "translation": "island",
+    "word": "pulo"
+  },
+  {
+    "translation": "floor",
+    "word": "sahig"
+  },
+  {
+    "translation": "ceiling",
+    "word": "kisame"
+  },
+  {
+    "translation": "wall",
+    "word": "pader"
+  },
+  {
+    "translation": "blanket",
+    "word": "kumot"
+  },
+  {
+    "translation": "pillow",
+    "word": "unan"
+  },
+  {
+    "translation": "bed",
+    "word": "kama"
+  },
+  {
+    "translation": "toothbrush",
+    "word": "sepilyo"
+  },
+  {
+    "translation": "soap",
+    "word": "sabón"
+  },
+  {
+    "translation": "key",
+    "word": "susi"
+  },
+  {
+    "translation": "door",
+    "word": "pinto"
+  },
+  {
+    "translation": "pen",
+    "word": "panulat"
+  },
+  {
+    "translation": "bag",
+    "word": "bag"
+  },
+  {
+    "translation": "clothes",
+    "word": "damit"
+  },
+  {
+    "translation": "shoe",
+    "word": "sapatos"
+  },
+  {
+    "translation": "bicycle",
+    "word": "bisikleta"
+  },
+  {
+    "translation": "sea",
+    "word": "dagat"
   },
   {
     "translation": "research",
@@ -964,15 +1112,7 @@
     "word": "takdang-aralin"
   },
   {
-    "translation": "assignment",
-    "word": "takdang-aralin"
-  },
-  {
-    "translation": "project",
-    "word": "proyekto"
-  },
-  {
-    "translation": "test",
+    "translation": "test/challenge",
     "word": "pagsubok"
   },
   {
@@ -992,20 +1132,12 @@
     "word": "diploma"
   },
   {
-    "translation": "employment",
-    "word": "trabaho"
-  },
-  {
     "translation": "salary",
     "word": "suweldo"
   },
   {
     "translation": "career",
     "word": "karera"
-  },
-  {
-    "translation": "office",
-    "word": "opisina"
   },
   {
     "translation": "business",
@@ -1036,10 +1168,6 @@
     "word": "kalakalan"
   },
   {
-    "translation": "market",
-    "word": "palengke"
-  },
-  {
     "translation": "sales",
     "word": "benta"
   },
@@ -1049,7 +1177,7 @@
   },
   {
     "translation": "advertising",
-    "word": "advertising"
+    "word": "adbertismo"
   },
   {
     "translation": "promotion",
@@ -1128,14 +1256,6 @@
     "word": "account"
   },
   {
-    "translation": "bank",
-    "word": "bangko"
-  },
-  {
-    "translation": "loan",
-    "word": "pautang"
-  },
-  {
     "translation": "mortgage",
     "word": "sangla"
   },
@@ -1176,24 +1296,8 @@
     "word": "pagreretiro"
   },
   {
-    "translation": "savings",
-    "word": "pagtitipid"
-  },
-  {
     "translation": "debt",
     "word": "utang"
-  },
-  {
-    "translation": "loan",
-    "word": "pautang"
-  },
-  {
-    "translation": "credit",
-    "word": "pautang"
-  },
-  {
-    "translation": "payment",
-    "word": "pagbabayad"
   },
   {
     "translation": "bill",
@@ -1202,10 +1306,6 @@
   {
     "translation": "charge",
     "word": "singilin"
-  },
-  {
-    "translation": "expense",
-    "word": "gastos"
   },
   {
     "translation": "income",
@@ -1218,42 +1318,6 @@
   {
     "translation": "loss",
     "word": "pagkawala"
-  },
-  {
-    "translation": "tax",
-    "word": "buwis"
-  },
-  {
-    "translation": "expense",
-    "word": "gastos"
-  },
-  {
-    "translation": "budget",
-    "word": "badyet"
-  },
-  {
-    "translation": "cost",
-    "word": "gastos"
-  },
-  {
-    "translation": "savings",
-    "word": "pagtitipid"
-  },
-  {
-    "translation": "expense",
-    "word": "gastos"
-  },
-  {
-    "translation": "income",
-    "word": "kita"
-  },
-  {
-    "translation": "profit",
-    "word": "tubo"
-  },
-  {
-    "translation": "tax",
-    "word": "buwis"
   },
   {
     "translation": "capital",
@@ -1272,24 +1336,12 @@
     "word": "equity"
   },
   {
-    "translation": "investment",
-    "word": "pamumuhunan"
-  },
-  {
     "translation": "exchange",
     "word": "palitan"
   },
   {
-    "translation": "market",
-    "word": "palengke"
-  },
-  {
     "translation": "stock",
     "word": "stock"
-  },
-  {
-    "translation": "company",
-    "word": "kumpanya"
   },
   {
     "translation": "share",
@@ -1302,10 +1354,6 @@
   {
     "translation": "trading",
     "word": "pangangalakal"
-  },
-  {
-    "translation": "stock",
-    "word": "stock"
   },
   {
     "translation": "fund",
@@ -1324,23 +1372,15 @@
     "word": "diskarte"
   },
   {
-    "translation": "risk",
+    "translation": "risk/danger",
     "word": "panganib"
-  },
-  {
-    "translation": "profit",
-    "word": "tubo"
-  },
-  {
-    "translation": "loss",
-    "word": "pagkawala"
   },
   {
     "translation": "margin",
     "word": "margin"
   },
   {
-    "translation": "hedge",
+    "translation": "hedge/fence",
     "word": "bakod"
   },
   {
@@ -1368,8 +1408,8 @@
     "word": "plano"
   },
   {
-    "translation": "forecast",
-    "word": "pagtataya"
+    "translation": "prediction",
+    "word": "prediksyon"
   },
   {
     "translation": "return",
@@ -1384,12 +1424,8 @@
     "word": "ekonomiya"
   },
   {
-    "translation": "trade",
-    "word": "kalakalan"
-  },
-  {
     "translation": "export",
-    "word": "i-export"
+    "word": "eksport"
   },
   {
     "translation": "import",
@@ -1400,36 +1436,16 @@
     "word": "global"
   },
   {
-    "translation": "market",
-    "word": "palengke"
-  },
-  {
-    "translation": "currency",
-    "word": "pera"
-  },
-  {
     "translation": "foreign",
     "word": "dayuhan"
-  },
-  {
-    "translation": "exchange",
-    "word": "palitan"
   },
   {
     "translation": "inflation",
     "word": "inflation"
   },
   {
-    "translation": "deflation",
-    "word": "pagpapalabas ng hangin"
-  },
-  {
     "translation": "recession",
     "word": "recession"
-  },
-  {
-    "translation": "boom",
-    "word": "boom"
   },
   {
     "translation": "depression",
@@ -1440,68 +1456,12 @@
     "word": "kawalan ng trabaho"
   },
   {
-    "translation": "inflation",
-    "word": "inflation"
-  },
-  {
-    "translation": "deflation",
-    "word": "pagpapalabas ng hangin"
-  },
-  {
-    "translation": "recession",
-    "word": "recession"
-  },
-  {
-    "translation": "inflation",
-    "word": "inflation"
-  },
-  {
-    "translation": "investment",
-    "word": "pamumuhunan"
-  },
-  {
-    "translation": "pension",
-    "word": "pensiyon"
-  },
-  {
-    "translation": "retirement",
-    "word": "pagreretiro"
-  },
-  {
-    "translation": "savings",
-    "word": "pagtitipid"
-  },
-  {
-    "translation": "budget",
-    "word": "badyet"
-  },
-  {
     "translation": "finance",
     "word": "pananalapi"
   },
   {
-    "translation": "money",
-    "word": "pera"
-  },
-  {
     "translation": "wealth",
     "word": "kayamanan"
-  },
-  {
-    "translation": "capital",
-    "word": "kapital"
-  },
-  {
-    "translation": "rich",
-    "word": "mayaman"
-  },
-  {
-    "translation": "poor",
-    "word": "mahirap"
-  },
-  {
-    "translation": "middle-class",
-    "word": "middle-class"
   },
   {
     "translation": "social",
@@ -1548,20 +1508,8 @@
     "word": "paggamot"
   },
   {
-    "translation": "doctor",
-    "word": "doktor"
-  },
-  {
     "translation": "surgery",
     "word": "operasyon"
-  },
-  {
-    "translation": "operation",
-    "word": "operasyon"
-  },
-  {
-    "translation": "medicine",
-    "word": "gamot"
   },
   {
     "translation": "pill",
@@ -1581,7 +1529,7 @@
   },
   {
     "translation": "emergency",
-    "word": "emergency"
+    "word": "emerhensiya"
   },
   {
     "translation": "pharmacy",
@@ -1592,16 +1540,8 @@
     "word": "reseta"
   },
   {
-    "translation": "medication",
-    "word": "gamot"
-  },
-  {
     "translation": "injection",
     "word": "iniksyon"
-  },
-  {
-    "translation": "medicine",
-    "word": "gamot"
   },
   {
     "translation": "vaccine",
@@ -1616,14 +1556,6 @@
     "word": "pag-iwas"
   },
   {
-    "translation": "health",
-    "word": "kalusugan"
-  },
-  {
-    "translation": "fitness",
-    "word": "fitness"
-  },
-  {
     "translation": "exercise",
     "word": "ehersisyo"
   },
@@ -1636,26 +1568,6 @@
     "word": "diyeta"
   },
   {
-    "translation": "sport",
-    "word": "palakasan"
-  },
-  {
-    "translation": "gym",
-    "word": "gym"
-  },
-  {
-    "translation": "health",
-    "word": "kalusugan"
-  },
-  {
-    "translation": "doctor",
-    "word": "doktor"
-  },
-  {
-    "translation": "nurse",
-    "word": "nars"
-  },
-  {
     "translation": "wellness",
     "word": "kagalingan"
   },
@@ -1664,36 +1576,20 @@
     "word": "kaisipan"
   },
   {
-    "translation": "health",
-    "word": "kalusugan"
-  },
-  {
     "translation": "psychology",
     "word": "sikolohiya"
   },
   {
     "translation": "therapy",
-    "word": "therapy"
+    "word": "terapiya"
   },
   {
     "translation": "stress",
     "word": "stress"
   },
   {
-    "translation": "depression",
-    "word": "depresyon"
-  },
-  {
     "translation": "anxiety",
     "word": "pagkabalisa"
-  },
-  {
-    "translation": "mood",
-    "word": "kalooban"
-  },
-  {
-    "translation": "treatment",
-    "word": "paggamot"
   },
   {
     "translation": "recovery",
@@ -1704,10 +1600,6 @@
     "word": "pagkagumon"
   },
   {
-    "translation": "treatment",
-    "word": "paggamot"
-  },
-  {
     "translation": "care",
     "word": "pangangalaga"
   },
@@ -1716,24 +1608,8 @@
     "word": "suporta"
   },
   {
-    "translation": "recovery",
-    "word": "pagbawi"
-  },
-  {
-    "translation": "wellness",
-    "word": "kagalingan"
-  },
-  {
-    "translation": "healthy",
-    "word": "malusog"
-  },
-  {
     "translation": "mind",
     "word": "isip"
-  },
-  {
-    "translation": "mental",
-    "word": "kaisipan"
   },
   {
     "translation": "emotional",
@@ -1744,20 +1620,8 @@
     "word": "katatagan"
   },
   {
-    "translation": "health",
-    "word": "kalusugan"
-  },
-  {
     "translation": "balance",
     "word": "balanse"
-  },
-  {
-    "translation": "well-being",
-    "word": "kagalingan"
-  },
-  {
-    "translation": "mindfulness",
-    "word": "pag-iisip"
   },
   {
     "translation": "rest",
@@ -1766,26 +1630,6 @@
   {
     "translation": "sleep",
     "word": "matulog"
-  },
-  {
-    "translation": "relationship",
-    "word": "relasyon"
-  },
-  {
-    "translation": "communication",
-    "word": "komunikasyon"
-  },
-  {
-    "translation": "family",
-    "word": "pamilya"
-  },
-  {
-    "translation": "friend",
-    "word": "kaibigan"
-  },
-  {
-    "translation": "love",
-    "word": "pag-ibig"
   },
   {
     "translation": "trust",
@@ -1800,28 +1644,12 @@
     "word": "paggalang"
   },
   {
-    "translation": "care",
-    "word": "pangangalaga"
-  },
-  {
     "translation": "happiness",
     "word": "kaligayahan"
   },
   {
     "translation": "help",
     "word": "tulong"
-  },
-  {
-    "translation": "support",
-    "word": "suporta"
-  },
-  {
-    "translation": "friendship",
-    "word": "pagkakaibigan"
-  },
-  {
-    "translation": "teamwork",
-    "word": "pagtutulungan ng magkakasama"
   },
   {
     "translation": "cooperation",
@@ -1836,10 +1664,6 @@
     "word": "pagkakaisa"
   },
   {
-    "translation": "peace",
-    "word": "kapayapaan"
-  },
-  {
     "translation": "conflict",
     "word": "tunggalian"
   },
@@ -1850,10 +1674,6 @@
   {
     "translation": "argument",
     "word": "argumento"
-  },
-  {
-    "translation": "negotiation",
-    "word": "negosasyon"
   },
   {
     "translation": "compromise",
@@ -1884,14 +1704,6 @@
     "word": "layunin"
   },
   {
-    "translation": "plan",
-    "word": "plano"
-  },
-  {
-    "translation": "achievement",
-    "word": "tagumpay"
-  },
-  {
     "translation": "success",
     "word": "tagumpay"
   },
@@ -1916,20 +1728,8 @@
     "word": "kinabukasan"
   },
   {
-    "translation": "growth",
-    "word": "paglago"
-  },
-  {
     "translation": "opportunity",
     "word": "pagkakataon"
-  },
-  {
-    "translation": "strategy",
-    "word": "diskarte"
-  },
-  {
-    "translation": "learning",
-    "word": "pag-aaral"
   },
   {
     "translation": "discipline",
@@ -1944,15 +1744,1127 @@
     "word": "pangkat"
   },
   {
-    "translation": "work",
-    "word": "trabaho"
-  },
-  {
     "translation": "collaboration",
     "word": "pakikipagtulungan"
   },
   {
-    "translation": "achievement",
-    "word": "tagumpay"
+    "translation": "church",
+    "word": "simbahan"
+  },
+  {
+    "translation": "road",
+    "word": "kalsada"
+  },
+  {
+    "translation": "bridge",
+    "word": "tulay"
+  },
+  {
+    "translation": "train",
+    "word": "tren"
+  },
+  {
+    "translation": "boat",
+    "word": "barko"
+  },
+  {
+    "translation": "plane",
+    "word": "eroplano"
+  },
+  {
+    "translation": "hat",
+    "word": "sumbrero"
+  },
+  {
+    "translation": "pants",
+    "word": "pantalon"
+  },
+  {
+    "translation": "shirt",
+    "word": "kamiseta"
+  },
+  {
+    "translation": "dress",
+    "word": "bestida"
+  },
+  {
+    "translation": "wallet",
+    "word": "pitaka"
+  },
+  {
+    "translation": "watch",
+    "word": "relo"
+  },
+  {
+    "translation": "forest",
+    "word": "gubat"
+  },
+  {
+    "translation": "grass",
+    "word": "damo"
+  },
+  {
+    "translation": "lightning",
+    "word": "kidlat"
+  },
+  {
+    "translation": "thunder",
+    "word": "kulog"
+  },
+  {
+    "translation": "storm",
+    "word": "bagyo"
+  },
+  {
+    "translation": "boat",
+    "word": "bangka"
+  },
+  {
+    "translation": "roof",
+    "word": "bubong"
+  },
+  {
+    "translation": "kitchen",
+    "word": "kusina"
+  },
+  {
+    "translation": "bathroom",
+    "word": "banyo"
+  },
+  {
+    "translation": "bedroom",
+    "word": "kwarto"
+  },
+  {
+    "translation": "building",
+    "word": "gusali"
+  },
+  {
+    "translation": "light",
+    "word": "ilaw"
+  },
+  {
+    "translation": "shadow",
+    "word": "anino"
+  },
+  {
+    "translation": "noise",
+    "word": "ingay"
+  },
+  {
+    "translation": "voice",
+    "word": "boses"
+  },
+  {
+    "translation": "ice",
+    "word": "yelo"
+  },
+  {
+    "translation": "dust",
+    "word": "alikabok"
+  },
+  {
+    "translation": "mud",
+    "word": "putik"
+  },
+  {
+    "translation": "leaf",
+    "word": "dahon"
+  },
+  {
+    "translation": "branch",
+    "word": "sanga"
+  },
+  {
+    "translation": "root",
+    "word": "ugat"
+  },
+  {
+    "translation": "fruit",
+    "word": "prutas"
+  },
+  {
+    "translation": "seed",
+    "word": "buto"
+  },
+  {
+    "translation": "garden",
+    "word": "hardin"
+  },
+  {
+    "translation": "field",
+    "word": "bukid"
+  },
+  {
+    "translation": "farm",
+    "word": "sakahan"
+  },
+  {
+    "translation": "path",
+    "word": "daan"
+  },
+  {
+    "translation": "corner",
+    "word": "kanto"
+  },
+  {
+    "translation": "alley",
+    "word": "eskinita"
+  },
+  {
+    "translation": "student",
+    "word": "mag-aaral"
+  },
+  {
+    "translation": "notebook",
+    "word": "kwaderno"
+  },
+  {
+    "translation": "pencil",
+    "word": "lapis"
+  },
+  {
+    "translation": "test",
+    "word": "eksamen"
+  },
+  {
+    "translation": "report card",
+    "word": "kard ng marka"
+  },
+  {
+    "translation": "lesson",
+    "word": "leksyon"
+  },
+  {
+    "translation": "colleague",
+    "word": "katrabaho"
+  },
+  {
+    "translation": "manager",
+    "word": "tagapamahala"
+  },
+  {
+    "translation": "resume",
+    "word": "biodata"
+  },
+  {
+    "translation": "interview",
+    "word": "panayam"
+  },
+  {
+    "translation": "recess",
+    "word": "oras ng pahinga"
+  },
+  {
+    "translation": "blackboard",
+    "word": "pisara"
+  },
+  {
+    "translation": "chalk",
+    "word": "tsalk"
+  },
+  {
+    "translation": "mango",
+    "word": "mangga"
+  },
+  {
+    "translation": "pineapple",
+    "word": "pinya"
+  },
+  {
+    "translation": "watermelon",
+    "word": "pakwan"
+  },
+  {
+    "translation": "grapes",
+    "word": "ubas"
+  },
+  {
+    "translation": "papaya",
+    "word": "papaya"
+  },
+  {
+    "translation": "coconut",
+    "word": "niyog"
+  },
+  {
+    "translation": "guava",
+    "word": "bayabas"
+  },
+  {
+    "translation": "lanzones",
+    "word": "lansones"
+  },
+  {
+    "translation": "lychee",
+    "word": "litsiyas"
+  },
+  {
+    "translation": "pear",
+    "word": "peras"
+  },
+  {
+    "translation": "star apple",
+    "word": "kaimito"
+  },
+  {
+    "translation": "tamarind",
+    "word": "sampalok"
+  },
+  {
+    "translation": "sugar apple",
+    "word": "atis"
+  },
+  {
+    "translation": "jackfruit",
+    "word": "langka"
+  },
+  {
+    "translation": "durian",
+    "word": "durian"
+  },
+  {
+    "translation": "rambutan",
+    "word": "rambutan"
+  },
+  {
+    "translation": "santol",
+    "word": "santol"
+  },
+  {
+    "translation": "one",
+    "word": "isa"
+  },
+  {
+    "translation": "two",
+    "word": "dalawa"
+  },
+  {
+    "translation": "three",
+    "word": "tatlo"
+  },
+  {
+    "translation": "four",
+    "word": "apat"
+  },
+  {
+    "translation": "five",
+    "word": "lima"
+  },
+  {
+    "translation": "six",
+    "word": "anim"
+  },
+  {
+    "translation": "seven",
+    "word": "pito"
+  },
+  {
+    "translation": "eight",
+    "word": "walo"
+  },
+  {
+    "translation": "nine",
+    "word": "siyam"
+  },
+  {
+    "translation": "ten",
+    "word": "sampu"
+  },
+  {
+    "translation": "how many",
+    "word": "ilang"
+  },
+  {
+    "translation": "to count",
+    "word": "magbilang"
+  },
+  {
+    "translation": "number",
+    "word": "numero"
+  },
+  {
+    "translation": "digit",
+    "word": "titik"
+  },
+  {
+    "translation": "quantity",
+    "word": "dami"
+  },
+  {
+    "translation": "total",
+    "word": "kabuuan"
+  },
+  {
+    "translation": "sum",
+    "word": "buuin"
+  },
+  {
+    "translation": "add",
+    "word": "dagdagan"
+  },
+  {
+    "translation": "subtract",
+    "word": "bawasin"
+  },
+  {
+    "translation": "divide",
+    "word": "hatiin"
+  },
+  {
+    "translation": "multiply",
+    "word": "paramihin"
+  },
+  {
+    "translation": "shape",
+    "word": "hugis"
+  },
+  {
+    "translation": "circle",
+    "word": "bilog"
+  },
+  {
+    "translation": "square",
+    "word": "parisukat"
+  },
+  {
+    "translation": "rectangle",
+    "word": "parihaba"
+  },
+  {
+    "translation": "triangle",
+    "word": "tatsulok"
+  },
+  {
+    "translation": "oval",
+    "word": "obalo"
+  },
+  {
+    "translation": "heart",
+    "word": "puso"
+  },
+  {
+    "translation": "diamond",
+    "word": "brilyante"
+  },
+  {
+    "translation": "pentagon",
+    "word": "limang sulok"
+  },
+  {
+    "translation": "hexagon",
+    "word": "anim na sulok"
+  },
+  {
+    "translation": "octagon",
+    "word": "walong sulok"
+  },
+  {
+    "translation": "line",
+    "word": "linya"
+  },
+  {
+    "translation": "curve",
+    "word": "kurba"
+  },
+  {
+    "translation": "angle",
+    "word": "anggulo"
+  },
+  {
+    "translation": "side",
+    "word": "gilid"
+  },
+  {
+    "translation": "edge",
+    "word": "dulo"
+  },
+  {
+    "translation": "surface",
+    "word": "ibabaw"
+  },
+  {
+    "translation": "point",
+    "word": "tuldok"
+  },
+  {
+    "translation": "rice",
+    "word": "kanin"
+  },
+  {
+    "translation": "uncooked rice",
+    "word": "bigas"
+  },
+  {
+    "translation": "egg",
+    "word": "itlog"
+  },
+  {
+    "translation": "bread",
+    "word": "tinapay"
+  },
+  {
+    "translation": "noodles",
+    "word": "pansit"
+  },
+  {
+    "translation": "vegetables",
+    "word": "gulay"
+  },
+  {
+    "translation": "soup",
+    "word": "sopas"
+  },
+  {
+    "translation": "sauce",
+    "word": "sarsa"
+  },
+  {
+    "translation": "vinegar",
+    "word": "suka"
+  },
+  {
+    "translation": "soy sauce",
+    "word": "toyo"
+  },
+  {
+    "translation": "salt",
+    "word": "asin"
+  },
+  {
+    "translation": "sugar",
+    "word": "asukal"
+  },
+  {
+    "translation": "pepper",
+    "word": "paminta"
+  },
+  {
+    "translation": "spoon",
+    "word": "kutsara"
+  },
+  {
+    "translation": "fork",
+    "word": "tinidor"
+  },
+  {
+    "translation": "curse",
+    "word": "sumpa"
+  },
+  {
+    "translation": "to curse (someone)",
+    "word": "isumpa"
+  },
+  {
+    "translation": "swear word",
+    "word": "mura"
+  },
+  {
+    "translation": "to curse / to swear",
+    "word": "magmura"
+  },
+  {
+    "translation": "damn",
+    "word": "leche"
+  },
+  {
+    "translation": "you are an animal (as an insult)",
+    "word": "hayup ka"
+  },
+  {
+    "translation": "crazy",
+    "word": "loko"
+  },
+  {
+    "translation": "you fool",
+    "word": "gago"
+  },
+  {
+    "translation": "you idiot (female)",
+    "word": "tanga"
+  },
+  {
+    "translation": "son of a b****",
+    "word": "putang ina"
+  },
+  {
+    "translation": "jerk / bastard",
+    "word": "ulol"
+  },
+  {
+    "translation": "stupid",
+    "word": "engot"
+  },
+  {
+    "translation": "dumb",
+    "word": "bobo"
+  },
+  {
+    "translation": "darn it",
+    "word": "bwisit"
+  },
+  {
+    "translation": "damn you",
+    "word": "peste ka"
+  },
+  {
+    "translation": "evil spell",
+    "word": "kulam"
+  },
+  {
+    "translation": "witchcraft",
+    "word": "mangkukulam"
+  },
+  {
+    "translation": "crazy",
+    "word": "sira-ulo"
+  },
+  {
+    "translation": "fat",
+    "word": "mataba"
+  },
+  {
+    "translation": "skinny (in a negative way)",
+    "word": "butot-balat"
+  },
+  {
+    "translation": "smelly",
+    "word": "mabaho"
+  },
+  {
+    "translation": "lazy",
+    "word": "tamad"
+  },
+  {
+    "translation": "arrogant",
+    "word": "mayabang"
+  },
+  {
+    "translation": "annoying",
+    "word": "makulit"
+  },
+  {
+    "translation": "noisy",
+    "word": "maingay"
+  },
+  {
+    "translation": "demanding",
+    "word": "pabibo"
+  },
+  {
+    "translation": "two-faced",
+    "word": "plastic"
+  },
+  {
+    "translation": "gossiper",
+    "word": "tsismosa"
+  },
+  {
+    "translation": "attention-seeker",
+    "word": "papansin"
+  },
+  {
+    "translation": "bitter",
+    "word": "mapait"
+  },
+  {
+    "translation": "jealous",
+    "word": "seloso"
+  },
+  {
+    "translation": "snobbish",
+    "word": "suplado"
+  },
+  {
+    "translation": "eat",
+    "word": "kumain"
+  },
+  {
+    "translation": "drink",
+    "word": "uminom"
+  },
+  {
+    "translation": "run",
+    "word": "tumakbo"
+  },
+  {
+    "translation": "walk",
+    "word": "maglakad"
+  },
+  {
+    "translation": "write",
+    "word": "sumulat"
+  },
+  {
+    "translation": "read",
+    "word": "magbasa"
+  },
+  {
+    "translation": "talk",
+    "word": "magsalita"
+  },
+  {
+    "translation": "listen",
+    "word": "makinig"
+  },
+  {
+    "translation": "look",
+    "word": "tumingin"
+  },
+  {
+    "translation": "cook",
+    "word": "magluto"
+  },
+  {
+    "translation": "clean",
+    "word": "maglinis"
+  },
+  {
+    "translation": "study",
+    "word": "mag-aral"
+  },
+  {
+    "translation": "help",
+    "word": "tumulong"
+  },
+  {
+    "translation": "cry",
+    "word": "umiyak"
+  },
+  {
+    "translation": "laugh",
+    "word": "tumawa"
+  },
+  {
+    "translation": "work",
+    "word": "magtrabaho"
+  },
+  {
+    "translation": "play",
+    "word": "maglaro"
+  },
+  {
+    "translation": "sing",
+    "word": "kumanta"
+  },
+  {
+    "translation": "dance",
+    "word": "sumayaw"
+  },
+  {
+    "translation": "open",
+    "word": "buksan"
+  },
+  {
+    "translation": "close",
+    "word": "isara"
+  },
+  {
+    "translation": "wash",
+    "word": "maghugas"
+  },
+  {
+    "translation": "drive",
+    "word": "magmaneho"
+  },
+  {
+    "translation": "wait",
+    "word": "maghintay"
+  },
+  {
+    "translation": "call",
+    "word": "tumawag"
+  },
+  {
+    "translation": "text",
+    "word": "mag-text"
+  },
+  {
+    "translation": "shout",
+    "word": "sumigaw"
+  },
+  {
+    "translation": "smile",
+    "word": "ngumiti"
+  },
+  {
+    "translation": "frown",
+    "word": "sumimangot"
+  },
+  {
+    "translation": "sit",
+    "word": "umupo"
+  },
+  {
+    "translation": "stand",
+    "word": "tumayo"
+  },
+  {
+    "translation": "swim",
+    "word": "lumangoy"
+  },
+  {
+    "translation": "climb",
+    "word": "umakyat"
+  },
+  {
+    "translation": "paint",
+    "word": "magpinta"
+  },
+  {
+    "translation": "draw",
+    "word": "gumuhit"
+  },
+  {
+    "translation": "fix",
+    "word": "ayusin"
+  },
+  {
+    "translation": "carry",
+    "word": "magbuhat"
+  },
+  {
+    "translation": "teach",
+    "word": "magturo"
+  },
+  {
+    "translation": "write",
+    "word": "magsulat"
+  },
+  {
+    "translation": "wake up",
+    "word": "gumising"
+  },
+  {
+    "translation": "ride",
+    "word": "sumakay"
+  },
+  {
+    "translation": "think",
+    "word": "mag-isip"
+  },
+  {
+    "translation": "remember",
+    "word": "alalahanin"
+  },
+  {
+    "translation": "forget",
+    "word": "makalimot"
+  },
+  {
+    "translation": "feel",
+    "word": "makaramdam"
+  },
+  {
+    "translation": "pay",
+    "word": "magbayad"
+  },
+  {
+    "translation": "borrow",
+    "word": "manghiram"
+  },
+  {
+    "translation": "lend",
+    "word": "magpahiram"
+  },
+  {
+    "translation": "open",
+    "word": "magbukas"
+  },
+  {
+    "translation": "close",
+    "word": "magsara"
+  },
+  {
+    "translation": "break",
+    "word": "basagin"
+  },
+  {
+    "translation": "answer",
+    "word": "sumagot"
+  },
+  {
+    "translation": "whisper",
+    "word": "bumulong"
+  },
+  {
+    "translation": "travel",
+    "word": "maglakbay"
+  },
+  {
+    "translation": "build",
+    "word": "magtayo"
+  },
+  {
+    "translation": "destroy",
+    "word": "sirain"
+  },
+  {
+    "translation": "fall",
+    "word": "mahulog"
+  },
+  {
+    "translation": "jump",
+    "word": "tumalon"
+  },
+  {
+    "translation": "throw",
+    "word": "maghagis"
+  },
+  {
+    "translation": "catch",
+    "word": "sumalo"
+  },
+  {
+    "translation": "pull",
+    "word": "humila"
+  },
+  {
+    "translation": "push",
+    "word": "tulakin"
+  },
+  {
+    "translation": "tie",
+    "word": "itali"
+  },
+  {
+    "translation": "untie",
+    "word": "kalasin"
+  },
+  {
+    "translation": "lift",
+    "word": "itaas"
+  },
+  {
+    "translation": "drop",
+    "word": "ibagsak"
+  },
+  {
+    "translation": "drag",
+    "word": "kaladkarin"
+  },
+  {
+    "translation": "kick",
+    "word": "sumipa"
+  },
+  {
+    "translation": "punch",
+    "word": "sumuntok"
+  },
+  {
+    "translation": "wake up",
+    "word": "magising"
+  },
+  {
+    "translation": "dream",
+    "word": "managinip"
+  },
+  {
+    "translation": "snore",
+    "word": "humilik"
+  },
+  {
+    "translation": "yawn",
+    "word": "humikab"
+  },
+  {
+    "translation": "smell",
+    "word": "amuyin"
+  },
+  {
+    "translation": "taste",
+    "word": "tikman"
+  },
+  {
+    "translation": "touch",
+    "word": "hipuin"
+  },
+  {
+    "translation": "hug",
+    "word": "yumakap"
+  },
+  {
+    "translation": "kiss",
+    "word": "humalik"
+  },
+  {
+    "translation": "love",
+    "word": "mahalin"
+  },
+  {
+    "translation": "hate",
+    "word": "kamuhian"
+  },
+  {
+    "translation": "envy",
+    "word": "mainggit"
+  },
+  {
+    "translation": "worry",
+    "word": "mag-alala"
+  },
+  {
+    "translation": "sweep",
+    "word": "magwalis"
+  },
+  {
+    "translation": "iron (clothes)",
+    "word": "plantsahin"
+  },
+  {
+    "translation": "fold",
+    "word": "tiklupin"
+  },
+  {
+    "translation": "sew",
+    "word": "tumahi"
+  },
+  {
+    "translation": "repair",
+    "word": "kumpunihin"
+  },
+  {
+    "translation": "dig",
+    "word": "magtanim"
+  },
+  {
+    "translation": "harvest",
+    "word": "mag-ani"
+  },
+  {
+    "translation": "feed",
+    "word": "pakainin"
+  },
+  {
+    "translation": "guard",
+    "word": "magbantay"
+  },
+  {
+    "translation": "deliver",
+    "word": "maghatid"
+  },
+  {
+    "translation": "borrow",
+    "word": "hiramin"
+  },
+  {
+    "translation": "lend",
+    "word": "pautangin"
+  },
+  {
+    "translation": "save",
+    "word": "mag-impok"
+  },
+  {
+    "translation": "spend",
+    "word": "gumastos"
+  },
+  {
+    "translation": "crawl",
+    "word": "gumapang"
+  },
+  {
+    "translation": "hear",
+    "word": "marinig"
+  },
+  {
+    "translation": "see",
+    "word": "makakita"
+  },
+  {
+    "translation": "watch",
+    "word": "manood"
+  },
+  {
+    "translation": "touch",
+    "word": "hawakan"
+  },
+  {
+    "translation": "hold",
+    "word": "humawak"
+  },
+  {
+    "translation": "lock",
+    "word": "i-lock"
+  },
+  {
+    "translation": "unlock",
+    "word": "i-unlock"
+  },
+  {
+    "translation": "push",
+    "word": "itulak"
+  },
+  {
+    "translation": "pull",
+    "word": "hilahin"
+  },
+  {
+    "translation": "throw",
+    "word": "ihagis"
+  },
+  {
+    "translation": "catch",
+    "word": "saluin"
+  },
+  {
+    "translation": "untie",
+    "word": "kalagin"
+  },
+  {
+    "translation": "ask",
+    "word": "magtanong"
+  },
+  {
+    "translation": "exercise",
+    "word": "mag-ehersisyo"
+  },
+  {
+    "translation": "fight",
+    "word": "lumaban"
+  },
+  {
+    "translation": "gather",
+    "word": "magsama-sama"
+  },
+  {
+    "translation": "hug",
+    "word": "yakapin"
+  },
+  {
+    "translation": "hunt",
+    "word": "manghuli"
+  },
+  {
+    "translation": "invite",
+    "word": "imbitahin"
+  },
+  {
+    "translation": "learn",
+    "word": "matuto"
+  },
+  {
+    "translation": "lift",
+    "word": "buhatin"
+  },
+  {
+    "translation": "lose",
+    "word": "matalo"
+  },
+  {
+    "translation": "meet",
+    "word": "makipagkita"
+  },
+  {
+    "translation": "mix",
+    "word": "haluin"
+  },
+  {
+    "translation": "move",
+    "word": "gumalaw"
+  },
+  {
+    "translation": "pray",
+    "word": "manalangin"
   }
 ]
