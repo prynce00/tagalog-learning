@@ -14,7 +14,7 @@ const App = () => {
   const usedWords = storage?.usedWords || [];
   const mistakes = storage?.mistakes || 0;
   const nextReviewWord = storage?.nextReviewWord || 10;
-  const totalAllowedMistakes = 1;
+  const totalAllowedMistakes = 50;
   const known = storage?.known || [];
   const [word, setWord] = useState(null);
   const [characters, setCharacters] = useState([]);
@@ -200,7 +200,7 @@ const App = () => {
       const removed = [];
       const removedUsedChar = [...newUsedChar]; // so the original array isn't mutated
 
-      const countToRemove = Math.min(10, removedUsedChar.length);
+      const countToRemove = Math.min(5, removedUsedChar.length);
 
       for (let i = 0; i < countToRemove; i++) {
         const randomIndex = Math.floor(Math.random() * removedUsedChar.length);
