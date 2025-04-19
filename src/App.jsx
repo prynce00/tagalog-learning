@@ -14,8 +14,10 @@ const App = () => {
   const usedWords = storage?.usedWords || [];
   const mistakes = storage?.mistakes || 0;
   const nextReviewWord = storage?.nextReviewWord || 10;
-  const totalAllowedMistakes = 50;
+  const counter = storage?.counter || 0;
+  const masteryCount = 100;
   const known = storage?.known || [];
+  const wordStats = storage?.wordStats || {};
   const [word, setWord] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [totalCharacters, setTotalCharacters] = useState([]);
@@ -27,27 +29,6 @@ const App = () => {
     setTotalCharacters(WORDS);
 
     setCharacters(WORDS);
-  };
-
-  const pickLeastKnownCharacterData = () => {
-    if (!known.length) return false;
-
-    const minCorrectCount = Math.min(...known.map((item) => item.correctCount));
-
-    if (minCorrectCount > 10) return false;
-
-    const leastKnownCharacters = known.filter(
-      (item) => item.correctCount === minCorrectCount
-    );
-
-    const reviewChar =
-      leastKnownCharacters[
-        Math.floor(Math.random() * leastKnownCharacters.length)
-      ];
-
-    return (
-      totalCharacters.find((entry) => entry.word === reviewChar.word) || false
-    );
   };
 
   const calculateRating = () => {
@@ -74,10 +55,21 @@ const App = () => {
     }
   }, [word]);
 
+  useEffect(() => {
+    const reuseFrequency = 5;
+
+    if (counter >= reuseFrequency) {
+      setStorage({
+        counter: 0,
+      });
+      reuseWords(1);
+    }
+  }, [counter]);
+
   const handleStates = () => {
     if (state === STATES.ONGOING) {
       if (!word) {
-        const randomItem = getRandomItems(characters, usedWords);
+        const randomItem = getRandomItems(characters, known);
 
         if (randomItem.length === 6) {
           setWord(randomItem[0]);
@@ -157,6 +149,35 @@ const App = () => {
     return { rank: "Unknown", stars: 0, starIcons: "" }; // Fallback case
   };
 
+  const reuseWords = (words = 1) => {
+    // Mastered words shouldn't be part of reuse words anymore
+    const finalWords = usedWords.filter((e) => {
+      const stats = wordStats?.[e.word] || 0;
+
+      return stats < masteryCount;
+    });
+
+    const removed = [];
+    const removedUsedChar = [...finalWords]; // so the original array isn't mutated
+
+    const countToRemove = Math.min(words, removedUsedChar.length);
+
+    for (let i = 0; i < countToRemove; i++) {
+      const randomIndex = Math.floor(Math.random() * removedUsedChar.length);
+      const [removedItem] = removedUsedChar.splice(randomIndex, 1);
+      removed.push(removedItem.word);
+    }
+
+    const newKnown = known.filter((e) => !removed.includes(e.word));
+
+    setTimeout(() => {
+      setStorage({
+        usedWords: removedUsedChar,
+        known: newKnown,
+      });
+    }, 100);
+  };
+
   const revealAnswer = (selected) => {
     if (state !== STATES.ONGOING) {
       return false;
@@ -173,6 +194,10 @@ const App = () => {
     let newMistakes = mistakes;
     let newNextRevWord = nextReviewWord;
 
+    if (!wordStats[char]) {
+      wordStats[char] = 0;
+    }
+
     if (isCorrect) {
       const knownItem = known.find((item) => item.word === char);
 
@@ -183,6 +208,8 @@ const App = () => {
       }
 
       newUsedChar = [...usedWords, word];
+
+      wordStats[char] += 1;
     } else {
       const knownItem = known.find((item) => item.word === char);
       if (knownItem) {
@@ -196,21 +223,13 @@ const App = () => {
         newKnown = [...known];
       }
 
-      // Penalty remove 10 random words you have learnt
-      const removed = [];
-      const removedUsedChar = [...newUsedChar]; // so the original array isn't mutated
+      wordStats[char] -= 1;
 
-      const countToRemove = Math.min(5, removedUsedChar.length);
-
-      for (let i = 0; i < countToRemove; i++) {
-        const randomIndex = Math.floor(Math.random() * removedUsedChar.length);
-        const [removedItem] = removedUsedChar.splice(randomIndex, 1);
-        removed.push(removedItem.word);
+      if (wordStats[char] < 0) {
+        wordStats[char] = 0;
       }
 
-      newKnown = newKnown.filter((e) => !removed.includes(e.word));
-
-      newUsedChar = removedUsedChar;
+      reuseWords(7);
 
       newMistakes = mistakes + 1;
     }
@@ -221,7 +240,9 @@ const App = () => {
       usedWords: newUsedChar,
       correctAnswers: newCorrectAnswers,
       processedWords: processedWords + 1,
+      counter: counter + 1,
       known: newKnown,
+      wordStats,
       mistakes: newMistakes,
       nextReviewWord: newNextRevWord,
     };
@@ -242,6 +263,8 @@ const App = () => {
       unknown: [],
       mistakes: 0,
       nextReviewWord: 0,
+      counter: 0,
+      wordStats: {},
     });
   };
 
@@ -257,14 +280,6 @@ const App = () => {
 
     if (getUserWordsLen() <= 0) {
       loadWords();
-    }
-
-    if (mistakes >= totalAllowedMistakes) {
-      setStorage({
-        usedWords: [],
-        known: [],
-        mistakes: 0,
-      });
     }
   }, [state, characters]);
 
@@ -296,28 +311,12 @@ const App = () => {
             </span>
           </div>
           <div className="info-item">
-            <span className="title" title="Estimated Known Characters">
-              Mistakes:
-            </span>
-            <span className="value">
-              {mistakes}/{totalAllowedMistakes}
-            </span>
-          </div>
-          <div className="info-item">
-            <span className="title" title="Estimated Known Characters">
-              Next Review word:
-            </span>
-            <span className="value">
-              {nextReviewWord}({pickLeastKnownCharacterData()?.word})
-            </span>
-          </div>
-          <div className="info-item">
             <span className="title">Accuracy:</span>
             <span className="value">
               {correctAnswers}/{processedWords} ({getScorePercentage()}%)
             </span>
           </div>
-          <div className="info-item" onClick={reset}>
+          <div className="info-item pointer" onClick={reset}>
             <span className="value">↻ Reset Progress</span>
           </div>
         </div>
@@ -337,7 +336,12 @@ const App = () => {
           <>
             {word && (
               <>
-                <div className="word-container">{word.word}</div>
+                <div className="word-container">
+                  {wordStats[word.word] >= masteryCount && (
+                    <span className="master-icon">⭐</span>
+                  )}
+                  {word.word}
+                </div>
                 <PlaySound filename={word.word} />
                 <div className="options-container">
                   {options.map((option, ok) => (

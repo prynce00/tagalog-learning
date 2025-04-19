@@ -92,6 +92,78 @@
     "word": "buwan"
   },
   {
+    "translation": "one",
+    "word": "isa"
+  },
+  {
+    "translation": "two",
+    "word": "dalawa"
+  },
+  {
+    "translation": "three",
+    "word": "tatlo"
+  },
+  {
+    "translation": "four",
+    "word": "apat"
+  },
+  {
+    "translation": "five",
+    "word": "lima"
+  },
+  {
+    "translation": "six",
+    "word": "anim"
+  },
+  {
+    "translation": "dad",
+    "word": "tatay"
+  },
+  {
+    "translation": "older brother",
+    "word": "kuya"
+  },
+  {
+    "translation": "older sister",
+    "word": "ate"
+  },
+  {
+    "translation": "mom",
+    "word": "nanay"
+  },
+  {
+    "translation": "seven",
+    "word": "pito"
+  },
+  {
+    "translation": "eight",
+    "word": "walo"
+  },
+  {
+    "translation": "nine",
+    "word": "siyam"
+  },
+  {
+    "translation": "ten",
+    "word": "sampu"
+  },
+  {
+    "translation": "how many",
+    "word": "ilang"
+  },
+  {
+    "translation": "to count",
+    "word": "magbilang"
+  },
+  {
+    "translation": "number",
+    "word": "numero"
+  },
+  {
+    "translation": "digit",
+    "word": "titik"
+  },
+  {
     "translation": "star",
     "word": "bituin"
   },
@@ -1884,7 +1956,7 @@
     "word": "prutas"
   },
   {
-    "translation": "seed",
+    "translation": "seed/bone",
     "word": "buto"
   },
   {
@@ -2030,62 +2102,6 @@
   {
     "translation": "santol",
     "word": "santol"
-  },
-  {
-    "translation": "one",
-    "word": "isa"
-  },
-  {
-    "translation": "two",
-    "word": "dalawa"
-  },
-  {
-    "translation": "three",
-    "word": "tatlo"
-  },
-  {
-    "translation": "four",
-    "word": "apat"
-  },
-  {
-    "translation": "five",
-    "word": "lima"
-  },
-  {
-    "translation": "six",
-    "word": "anim"
-  },
-  {
-    "translation": "seven",
-    "word": "pito"
-  },
-  {
-    "translation": "eight",
-    "word": "walo"
-  },
-  {
-    "translation": "nine",
-    "word": "siyam"
-  },
-  {
-    "translation": "ten",
-    "word": "sampu"
-  },
-  {
-    "translation": "how many",
-    "word": "ilang"
-  },
-  {
-    "translation": "to count",
-    "word": "magbilang"
-  },
-  {
-    "translation": "number",
-    "word": "numero"
-  },
-  {
-    "translation": "digit",
-    "word": "titik"
   },
   {
     "translation": "quantity",

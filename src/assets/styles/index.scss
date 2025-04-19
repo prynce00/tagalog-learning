@@ -163,6 +163,13 @@ button {
   }
 }
 
-button {
+button,
+.pointer {
   cursor: pointer;
+}
+
+.master-icon {
+  font-size: 20px;
+  align-self: center;
+  margin-right: 10px;
 }
