@@ -24,6 +24,7 @@ const App = () => {
   const [options, setOptions] = useState([]);
 
   const playSound = usePlaySound(word?.word);
+  const playSoundError = usePlaySound("error");
 
   const loadWords = () => {
     setTotalCharacters(WORDS);
@@ -232,6 +233,9 @@ const App = () => {
       reuseWords(7);
 
       newMistakes = mistakes + 1;
+
+      // Play error sound
+      playSoundError("error");
     }
 
     let newStoreItem = {

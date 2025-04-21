@@ -52,7 +52,11 @@ const downloadAllWords = async () => {
   // Step 2: Delete extra MP3s not in the JSON list
   let deleteCount = 0;
   for (const file of existingFiles) {
-    if (!expectedFiles.has(file) && file.endsWith(".mp3")) {
+    if (
+      !expectedFiles.has(file) &&
+      file.endsWith(".mp3") &&
+      !file.includes("error")
+    ) {
       fs.unlinkSync(path.join(soundDirectory, file));
       console.log(`🗑️  Deleted: ${file}`);
       deleteCount++;
